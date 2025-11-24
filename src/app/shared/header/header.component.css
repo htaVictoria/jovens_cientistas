@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend+Exa:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Aldrich&family=Oswald:wght@200..700&display=swap');
 
 *{
   color: white;
@@ -19,9 +21,7 @@
 }
 
 .logo-container {
-    font-family: "Lexend Exa", sans-serif;
-
-  display: flex;
+  font-family: "Aldrich", sans-serif;  display: flex;
   align-items: center;
   font-weight: bolder;
   gap: 5px;

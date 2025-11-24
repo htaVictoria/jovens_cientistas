@@ -1,0 +1,198 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  width: 100dvw;
+  min-height: 100vh; 
+  color: black;
+}
+
+section{
+  display: flex;
+  flex-direction: column;
+  height: 50dvh;
+  font-family: "Lexend Exa", sans-serif;
+}
+
+.texto{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;  
+  padding: 20px;
+  width: 50%;
+}
+
+#s1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  background-color: #04d459;  
+}
+
+#s1 .texto{
+  width: 50%;
+}
+
+img{
+  width: 20%;
+}
+
+h1{
+  font-size: 50px;
+}
+
+h2{
+  font-size: 30px;
+}
+
+#s2{
+  justify-content: center;
+  word-wrap: break-word;
+  align-items: center;
+  height: 100dvh;
+  gap: 20px;
+  background-color: #0434b1;
+  padding: 30px;
+}
+
+.s2_divs{
+  display: flex;
+}
+
+#s2-div2{
+  justify-content: flex-end;
+}
+
+#s2-div2 p{
+  text-align: justify;
+}
+
+#s3{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #04d459;
+  height: 100dvh;
+}
+
+.cards{
+  display: flex;
+  gap: 20px;
+}
+
+.card{
+  background-color: rgb(255, 255, 255);
+  padding: 200px;
+  border-radius: 16px;
+}
+
+/* Media Queries para Responsividade */
+
+/* Tablets e telas menores */
+@media screen and (max-width: 1024px) {
+  h1{
+    font-size: 40px;
+  }
+  
+  h2{
+    font-size: 25px;
+  }
+  
+  .card{
+    padding: 150px;
+  }
+}
+
+/* Smartphones */
+@media screen and (max-width: 768px) {
+  section{
+    height: auto;
+    min-height: 50vh;
+  }
+  
+  #s1{
+    flex-direction: column;
+    padding: 20px;
+  }
+  
+  #s1 .texto{
+    width: 100%;
+    order: 2;
+  }
+  
+  .texto{
+    width: 100%;
+    padding: 15px;
+  }
+  
+  img{
+    width: 60%;
+    max-width: 300px;
+    order: 1;
+  }
+  
+  h1{
+    font-size: 32px;
+  }
+  
+  h2{
+    font-size: 20px;
+  }
+  
+  #s2{
+    height: auto;
+    min-height: 100vh;
+    padding: 20px;
+  }
+  
+  .s2_divs{
+    flex-direction: column;
+  }
+  
+  #s3{
+    height: auto;
+    min-height: 100vh;
+    padding: 20px;
+  }
+  
+  .cards{
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .card{
+    padding: 80px 40px;
+    width: 100%;
+  }
+}
+
+/* Smartphones pequenos */
+@media screen and (max-width: 480px) {
+  h1{
+    font-size: 28px;
+  }
+  
+  h2{
+    font-size: 18px;
+  }
+  
+  p{
+    font-size: 14px;
+  }
+  
+  .texto{
+    padding: 10px;
+  }
+  
+  #s2{
+    padding: 15px;
+  }
+  
+  .card{
+    padding: 60px 30px;
+  }
+  
+  img{
+    width: 80%;
+  }
+}

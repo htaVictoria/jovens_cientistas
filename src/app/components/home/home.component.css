@@ -1,0 +1,28 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; 
+}
+
+app-carousel{
+  width: 100vw;
+}
+
+img{
+  width: 100vw;
+  height: 400px;
+}
+
+#celular{
+  display: none;
+}
+
+@media (max-width: 768px){
+  #celular{
+    display: block;
+  }
+
+  img{
+    display: none;
+  }
+}

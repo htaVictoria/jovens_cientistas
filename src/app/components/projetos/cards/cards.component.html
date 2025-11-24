@@ -1,0 +1,28 @@
+<div class="cards-container">
+  <mat-card class="project-card">
+    <img mat-card-image [src]="project.image" [alt]="project.title">
+    
+    <div class="content_cards">
+      <mat-card-header>
+        <mat-card-title>{{ project.title }}</mat-card-title>
+        <mat-card-subtitle>{{ project.category }} • {{ project.date }}</mat-card-subtitle>
+      </mat-card-header>
+
+      <mat-card-content>
+        <div class="project-description">
+        <p >{{ project.description }}</p>
+        </div>
+        <div class="tags-container">
+          <mat-chip-set>
+            <mat-chip *ngFor="let tag of project.tags">{{ tag }}</mat-chip>
+          </mat-chip-set>
+        </div>
+
+        <div class="members-section">
+          <mat-icon>group</mat-icon>
+          <p class="members-text">{{ project.members.join(', ') }}</p>
+        </div>
+      </mat-card-content>
+    </div>
+  </mat-card>
+</div>

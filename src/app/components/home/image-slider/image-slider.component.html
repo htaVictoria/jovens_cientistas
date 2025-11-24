@@ -1,0 +1,62 @@
+<div class="slider-container">
+  <div class="slider-wrapper">
+    <div class="slider-content" (mouseenter)="pauseAutoplay()" (mouseleave)="resumeAutoplay()">
+      <!-- Container da Imagem -->
+      <div class="image-container">
+        <div class="slides-wrapper" [style.transform]="'translateX(' + slideTransform + '%)'">
+          <div *ngFor="let image of images; let i = index" class="slide">
+           <picture>
+              <source 
+                media="(max-width: 768px)" 
+                [srcset]="image.urlMobile"
+              />
+              
+              <img
+                [src]="image.url"
+                class="slider-image"
+              />
+            </picture>
+          </div>
+        </div>
+      </div>
+
+      <!-- Botão Anterior -->
+      <button
+        (click)="goToPrevious()"
+        class="nav-button nav-button-left"
+        aria-label="Imagem anterior"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </button>
+
+      <!-- Botão Próximo -->
+      <button
+        (click)="goToNext()"
+        class="nav-button nav-button-right"
+        aria-label="Próxima imagem"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
+
+      <!-- Indicadores -->
+      <div class="indicators">
+        <button
+          *ngFor="let image of images; let i = index"
+          (click)="goToSlide(i)"
+          [class.active]="i === currentIndex"
+          class="indicator"
+          [attr.aria-label]="'Ir para imagem ' + (i + 1)"
+        ></button>
+      </div>
+    </div>
+
+    <!-- Contador -->
+    <div class="counter">
+      {{ currentIndex + 1 }} / {{ images.length }}
+    </div>
+  </div>
+</div>

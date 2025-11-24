@@ -1,0 +1,140 @@
+.slider-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slider-wrapper {
+  width: 100dvw;
+}
+
+.slider-content {
+  position: relative;
+}
+
+.slider-content:hover .nav-button {
+  opacity: 1;
+}
+
+.image-container {
+  position: relative;
+  height: 24rem;
+  overflow: hidden;
+}
+
+.slides-wrapper {
+  display: flex;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  height: 100%;
+}
+
+.slide {
+  min-width: 100%;
+  position: relative;
+  height: 100%;
+}
+
+.slider-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.image-title-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+  padding: 1.5rem;
+}
+
+.image-title {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.nav-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0);
+  color: #000000;
+  padding: 0.75rem;
+  border-radius: 9999px;
+  border: none;
+  transition: all 0.2s ease;
+  opacity: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.nav-button:hover {
+    color: rgb(255, 255, 255);
+    transform: translateY(-50%) scale(1.5);
+}
+
+.nav-button-left {
+  left: 1rem;
+}
+
+.nav-button-right {
+  right: 1rem;
+}
+
+.indicators {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+  z-index: 10;
+}
+
+.indicator {
+  transition: all 0.3s ease;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.5);
+  width: 0.75rem;
+  height: 0.75rem;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.indicator:hover {
+  background: rgba(255, 255, 255, 0.75);
+}
+
+.indicator.active {
+  background: white;
+  width: 2rem;
+  height: 0.75rem;
+}
+
+.counter {
+  text-align: center;
+  margin-top: 1.5rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+
+
+  .image-container {
+    height: 16rem;
+  }
+
+  .nav-button {
+    opacity: 1;
+    padding: 0.5rem;
+  }
+}

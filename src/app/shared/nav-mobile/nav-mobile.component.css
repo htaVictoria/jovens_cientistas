@@ -1,0 +1,20 @@
+.sidenav-container {
+  height: calc(100vh - 64px);
+  margin-top: 64px;
+}
+
+.mobile-sidenav {
+  width: 250px;
+  background-color: #000000;
+}
+
+.mobile-sidenav mat-nav-list {
+  padding-top: 20px;
+}
+
+.mobile-sidenav a {
+  font-family: "Lexend Exa", sans-serif;
+  font-weight: 500;
+  margin: 5px 10px;
+  border-radius: 8px;
+}

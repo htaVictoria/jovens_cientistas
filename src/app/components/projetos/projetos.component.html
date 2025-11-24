@@ -1,0 +1,16 @@
+
+<div class="projects-container">
+    <h1>Nossos Projetos: </h1>
+    <p>Conheça os projetos desenvolvidos pelos membros do Clube de Ciências.</p>
+</div>
+  <div class="projects-grid">
+    <app-cards 
+      *ngFor="let project of projects" 
+      [project]="project"
+      (viewDetails)="handleViewDetails($event)">
+    </app-cards>
+  </div>
+
+
+
+

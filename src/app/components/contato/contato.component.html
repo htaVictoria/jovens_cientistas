@@ -1,23 +1,38 @@
 <section>
-    <form action="">
-        <label for="nome">Nome: </label>
-        <input type="text" id="nome">
+  <div class="card">
+    <div class="titulo-form">
+      <p>Junte-se a Nós!</p>
+    </div>
+    <div class="form-container">
+      <form action="">
+  
+  
+        <p-float-label variant="in" >
+          <input pInputText type="text" name="nome" id="nome" fluid>
+          <label for="nome">Nome: </label>
+        </p-float-label>
+  
+        <p-float-label variant="in">
+          <input pInputText type="text" name="email" id="email" fluid>
+          <label for="email">E-mail: </label>
+        </p-float-label>
+        <p-float-label variant="in">
+          <input pInputText type="text" name="turma" id="turma" fluid>
+          <label for="turma">Turma: </label>
+        </p-float-label>
+  
+          <p-multiselect [options]="area" [(ngModel)]="areasInteresse" name="areasInteresse" optionLabel="nome" display="chip" class="w-full md:w-80" filter="none" /> 
 
-        <label for="email">E-mail: </label>
-        <input type="email" id="email">
+          <div class="termos-de-uso">
+            <p-checkbox id="lgpd" [(ngModel)]="checked" [binary]="true" required="" />
+            <label for="lgpd">oi</label>
+          </div>
 
-        <label for="turma">Turma: </label>
-        <input type="text" id="turma">
-
-        <label>Selecione sua area de interesse</label>
-        <mat-form-field>
-            <mat-label>Toppings</mat-label>
-            <mat-select [formControl]="toppings" multiple>
-              @for (topping of toppingList; track topping) {
-                <mat-option [value]="topping">{{topping}}</mat-option>
-              }
-            </mat-select>
-          </mat-form-field>        
-
+          <a routerLink="" pButton>
+            <span type="submit" pButtonLabel>Router Link</span>
+        </a>
     </form>
+  </div>
+  </div>
 </section>
+

@@ -33,66 +33,73 @@ import { AuthService } from '../../services/auth.service';
 })
 export class ProfileComponent implements OnInit {
   private fb = inject(FormBuilder);
+  private construtorFormulario = inject(FormBuilder);
   private authService = inject(AuthService);
-  private messageService = inject(MessageService);
-  private router = inject(Router);
+  private servicoMensagem = inject(MessageService);
+  private roteador = inject(Router);
 
-  // Signal para controlar se está editando ou não
-  isEditing = signal(false);
+  // Sinal para controlar se está editando ou não
+  estaEditando = signal(false);
 
-  profileForm: FormGroup = this.fb.group({
-    nome: ['', Validators.required],
+  formularioPerfil: FormGroup = this.construtorFormulario.group({
+    nome: ['', [Validators.required]],
     email: ['', [Validators.required, Validators.email]],
-    turma: [''],
+    turma: ['']
     // Adicione outros campos se necessário
   });
 
   ngOnInit() {
-    const user = this.authService.currentUser();
+    const usuario = this.authService.currentUser();
     
-    if (user) {
+    if (usuario) {
       // Preenche o formulário com os dados atuais
-      this.profileForm.patchValue({
-        nome: user.nome,
-        email: user.email,
-        turma: user.turma
+      this.formularioPerfil.patchValue({
+        nome: usuario.nome,
+        email: usuario.email,
+        turma: usuario.turma
       });
     } else {
       // Se não tiver usuário (entrou pela URL direto), manda pro login
-      this.router.navigate(['/login']);
+      this.roteador.navigate(['/login']);
     }
 
     // Começa com o formulário desabilitado
-    this.profileForm.disable();
+    this.formularioPerfil.disable();
   }
 
-  toggleEdit() {
-    if (this.isEditing()) {
-      // CANCELAR EDIÇÃO: Reverte os dados e bloqueia
-      this.isEditing.set(false);
-      this.profileForm.disable();
-      // Recarrega os dados originais do signal
-      const user = this.authService.currentUser();
-      if(user) this.profileForm.patchValue(user);
-
-    } else {
+  alternarEdicao() {
+    if (!this.estaEditando()) {
       // ATIVAR EDIÇÃO: Libera os campos
-      this.isEditing.set(true);
-      this.profileForm.enable();
+      this.estaEditando.set(true);
+      this.formularioPerfil.enable();
+    } else {
+      // CANCELAR EDIÇÃO: Reverte os dados e bloqueia
+      this.estaEditando.set(false);
+      this.formularioPerfil.disable();
+      
+      // Recarrega os dados originais do usuário
+      const usuario = this.authService.currentUser();
+      if (usuario) {
+        this.formularioPerfil.patchValue(usuario);
+      }
     }
   }
 
-  saveChanges() {
-    if (this.profileForm.valid) {
+  salvarAlteracoes() {
+    if (this.formularioPerfil.valid) {
       // Chama o serviço para atualizar
-      this.authService.updateProfile(this.profileForm.value);
-      
+      this.authService.updateProfile(this.formularioPerfil.value);
+
       // Feedback visual
-      this.messageService.add({ severity: 'success', summary: 'Sucesso', detail: 'Dados atualizados!' });
-      
-      // Volta para modo de leitura
-      this.isEditing.set(false);
-      this.profileForm.disable();
+      this.servicoMensagem.add({ 
+        severity: 'success', 
+        summary: 'Sucesso', 
+        detail: 'Dados atualizados!' 
+      });
+
+      // Volta para modo de leitura (bloqueado)
+      this.estaEditando.set(false);
+      this.formularioPerfil.disable();
     }
   }
 }

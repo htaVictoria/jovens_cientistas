@@ -1,28 +1,62 @@
-<div class="cards-container">
-  <mat-card class="project-card">
-    <img mat-card-image [src]="project.image" [alt]="project.title">
+<div class="container-pagina">
+  
+  <div class="cabecalho-pagina">
+    <h1>Nossos Projetos</h1>
+    <p>Explore as descobertas feitas pelos nossos cientistas</p>
+  </div>
+
+  <div class="grade-projetos">
     
-    <div class="content_cards">
-      <mat-card-header>
-        <mat-card-title>{{ project.title }}</mat-card-title>
-        <mat-card-subtitle>{{ project.category }} • {{ project.date }}</mat-card-subtitle>
-      </mat-card-header>
+    <div class="cartao-projeto" *ngFor="let project of projects">
+      
+      <div class="area-imagem">
+        <img [src]="project.image" [alt]="project.title" class="imagem-capa">
+        
+        <p-tag 
+          [value]="project.category" 
+          [severity]="getSeverity(project.category)" 
+          class="tag-categoria">
+        </p-tag>
+      </div>
 
-      <mat-card-content>
-        <div class="project-description">
-        <p >{{ project.description }}</p>
-        </div>
-        <div class="tags-container">
-          <mat-chip-set>
-            <mat-chip *ngFor="let tag of project.tags">{{ tag }}</mat-chip>
-          </mat-chip-set>
+      <div class="conteudo-cartao">
+        
+        <div class="cabecalho-cartao">
+          <h2 class="titulo-projeto">{{ project.title }}</h2>
+          <span class="data-projeto">
+            <i class="pi pi-calendar"></i> {{ project.date }}
+          </span>
         </div>
 
-        <div class="members-section">
-          <mat-icon>group</mat-icon>
-          <p class="members-text">{{ project.members.join(', ') }}</p>
+        <p class="descricao-projeto">
+          {{ project.description }}
+        </p>
+
+        <div class="area-tags" *ngIf="project.tags && project.tags.length > 0">
+          <p-chip *ngFor="let tag of project.tags" [label]="tag" styleClass="chip-estilizado"></p-chip>
         </div>
-      </mat-card-content>
+        
+        <div class="divisor"></div>
+
+        <div class="rodape-cartao">
+          <div class="membros-equipe">
+            <i class="pi pi-users icone-equipe"></i>
+            <span class="texto-membros" title="{{ project.members.join(', ') }}">
+              {{ project.members.length }} Membro(s) na equipe
+            </span>
+          </div>
+
+          <p-button 
+            label="Detalhes" 
+            icon="pi pi-arrow-right" 
+            iconPos="right" 
+            [text]="true" 
+            size="small">
+          </p-button>
+        </div>
+
+      </div>
     </div>
-  </mat-card>
+
+  </div>
 </div>

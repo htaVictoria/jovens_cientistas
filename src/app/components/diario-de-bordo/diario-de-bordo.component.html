@@ -17,7 +17,7 @@
       </ng-template>
       <ng-template pTemplate="right">
         <p-button 
-          [label]="isLargeScreen() ? 'Nova Entrada' : ''" 
+          [label]="isLargeScreen() ? 'Novo Registro' : ''" 
           icon="pi pi-plus" 
           (onClick)="openDialog()"
           severity="success"
@@ -58,7 +58,7 @@
 
     <!-- Add/Edit Dialog -->
     <p-dialog 
-  [header]="editingId() ? 'Editar Entrada' : 'Nova Entrada'"
+  [header]="editingId() ? 'Editar' : 'Novo Registro'"
   [(visible)]="displayDialog"
   [modal]="true"
   [breakpoints]="{'960px': '90vw', '640px': '95vw'}"
@@ -70,7 +70,7 @@
   <div class="p-fluid grid formgrid p-2">
     
     <div class="field col-12 mb-3">
-      <label for="title" class="font-bold block mb-2">Título do Experimento *</label>
+      <label for="title" class="font-bold block mb-2">Título do Experimento: </label>
       <input 
         id="title"
         pInputText 
@@ -93,7 +93,7 @@
     </div>
 
     <div class="field col-12 mb-3">
-      <label for="materials" class="font-bold block mb-2">Materiais Utilizados</label>
+      <label for="materials" class="font-bold block mb-2">Materiais Utilizados: </label>
       <textarea 
         id="materials"
         pInputTextarea
@@ -106,7 +106,7 @@
     </div>
 
     <div class="field col-12 mb-3">
-      <label for="content" class="font-bold block mb-2">Procedimento e Resultados *</label>
+      <label for="content" class="font-bold block mb-2">Procedimento e Resultados: </label>
       <textarea 
         id="content"
         pInputTextarea
@@ -119,7 +119,7 @@
     </div>
 
     <div class="field col-12 mb-3">
-      <label for="observations" class="font-bold block mb-2">Observações e Conclusões</label>
+      <label for="observations" class="font-bold block mb-2">Observações e Conclusões: </label>
       <textarea 
         id="observations"
         pInputTextarea
@@ -173,7 +173,7 @@
             <div class="text-center py-4 md:py-6">
               <i class="pi pi-book text-5xl md:text-6xl text-400 mb-3"></i>
               <h3 class="text-lg md:text-xl font-semibold mb-2">Nenhuma entrada encontrada</h3>
-              <p class="text-sm md:text-base text-color-secondary">Comece criando sua primeira entrada do diário!</p>
+              <p class="text-sm md:text-base text-color-secondary">Comece criando seu primeiro experimento!</p>
             </div>
           </p-card>
         </div>

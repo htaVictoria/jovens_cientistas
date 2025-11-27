@@ -53,14 +53,13 @@
         <a mat-button routerLink="/projetos">Projetos</a>
     
         @if (user()) {
-          <button mat-button [matMenuTriggerFor]="menuProfile">
-            <mat-icon>account_circle</mat-icon>
-            <span class="ml-2">Perfil</span>
+          <button id="botao-icon" mat-button [matMenuTriggerFor]="menuProfile">
+            <i class="pi pi-user" id="icon"></i>
           </button>
           <mat-menu #menuProfile="matMenu">
-            <button mat-menu-item routerLink="/perfil">Minha Conta</button>
-            <button mat-menu-item routerLink="/diario-de-bordo">Diário de Bordo</button>
-            <button mat-menu-item (click)="logout()">Sair</button>
+            <button class="botao-menu" mat-menu-item routerLink="/perfil">Minha Conta</button>
+            <button class="botao-menu" mat-menu-item routerLink="/diario-de-bordo">Diário de Bordo</button>
+            <button class="botao-menu" mat-menu-item (click)="logout()">Sair</button>
           </mat-menu>
         } @else {
           <a mat-button routerLink="/login" class="btn-login">Entrar</a>

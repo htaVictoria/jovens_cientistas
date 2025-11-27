@@ -9,6 +9,7 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common'; // Para pipes comuns se precisar
 import { AuthService } from '../../services/auth.service';
 
+
 @Component({
   selector: 'app-header',
   standalone: true,

@@ -1,4 +1,135 @@
 <app-image-slider></app-image-slider>
-<section>
-    
+<section class="secao-boas-vindas">
+  
+    <div class="cabecalho-intro">
+        <div class="subtitulo-destaque">
+            Clube de Ciências
+        </div>
+        <h2 class="titulo-principal">
+            Onde a Curiosidade vira Descoberta
+        </h2>
+        <p class="texto-descricao">
+            Somos uma comunidade de estudantes dedicados a entender o mundo através da ciência, 
+            tecnologia e inovação.
+        </p>
+    </div>
+
+    <div class="grade-pilares">
+        
+        <div class="card-pilar">
+            <div class="container-icone tema-azul">
+                <i class="pi pi-flask"></i>
+            </div>
+            <h3 class="titulo-card">Experimentos</h3>
+            <p class="texto-card">
+                Atividades semanais em laboratório explorando química e física na prática.
+            </p>
+        </div>
+
+        <div class="card-pilar">
+            <div class="container-icone tema-laranja">
+                <i class="pi pi-bolt"></i>
+            </div>
+            <h3 class="titulo-card">Projetos</h3>
+            <p class="texto-card">
+                Desenvolvimento de pesquisas para feiras de ciências escolares e regionais.
+            </p>
+        </div>
+
+        <div class="card-pilar">
+            <div class="container-icone tema-verde">
+                <i class="pi pi-users"></i>
+            </div>
+            <h3 class="titulo-card">Comunidade</h3>
+            <p class="texto-card">
+                Aprendizado colaborativo, debates e resolução de problemas em grupo.
+            </p>
+        </div>
+    </div>
+
+    <div class="container-botao">
+        <p-button 
+            label="Conheça Nossa História" 
+            icon="pi pi-arrow-right" 
+            iconPos="right"
+            routerLink="/quem-somos" 
+            styleClass="botao-arredondado">
+        </p-button>
+    </div>
+
 </section>
+
+
+<section class="py-6 px-4 surface-ground">
+  
+    <div class="text-center mb-5">
+      <h2 class="text-3xl font-bold text-900 mb-2">Projetos em Destaque</h2>
+    </div>
+  
+    <p-carousel 
+      [value]="projetos" 
+      [numVisible]="3" 
+      [numScroll]="1" 
+      [circular]="true" 
+      [responsiveOptions]="responsiveOptions"
+      autoplayInterval="5000">
+  
+      <ng-template let-projeto pTemplate="item">
+        <div class="border-1 surface-border border-round m-2 p-3 surface-card h-full">
+          
+          <div class="mb-3 relative">
+              <div class="relative mx-auto">
+                  <img 
+                    [src]="projeto.image" 
+                    [alt]="projeto.title" 
+                    class="w-full border-round shadow-2"
+                    style="height: 220px; object-fit: cover; display: block;" 
+                  />
+                  
+                  <p-tag 
+                    [value]="projeto.category" 
+                    [severity]="getSeverity(projeto.category)" 
+                    class="absolute" 
+                    [style]="{'left.px': 10, 'top.px': 10}">
+                  </p-tag>
+              </div>
+          </div>
+  
+          <div class="mb-3 font-medium text-xl text-center text-900">
+            {{ projeto.title }}
+          </div>
+  
+          <div class="mb-3 text-600 text-sm text-center" style="min-height: 40px;">
+             {{ projeto.description | slice:0:60 }}...
+          </div>
+  
+          <div class="flex justify-content-between align-items-center mt-auto">
+            
+            <div class="mt-0 font-semibold text-lg text-600">
+              {{ projeto.date }}
+            </div>
+  
+            <span>
+              <p-button 
+                icon="pi pi-search" 
+                severity="secondary" 
+                [outlined]="true" 
+                [rounded]="true"
+                routerLink="/projetos">
+              </p-button>
+              
+              <p-button 
+                icon="pi pi-arrow-right" 
+                styleClass="ml-2" 
+                [rounded]="true"
+                routerLink="/projetos">
+              </p-button>
+            </span>
+  
+          </div>
+  
+        </div>
+      </ng-template>
+  
+    </p-carousel>
+  </section>

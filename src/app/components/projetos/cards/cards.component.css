@@ -1,78 +1,149 @@
-.cards-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 24px;
-  padding: 24px;
-  max-width: 1400px;
+/* --- LAYOUT DA PÁGINA --- */
+.container-pagina {
+  padding: 2rem;
+  max-width: 1200px;
   margin: 0 auto;
-  box-sizing: content-box;
+  min-height: 100vh;
 }
 
-.project-card {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  transition: all 0.3s ease;
+.cabecalho-pagina {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.cabecalho-pagina h1 {
+  font-size: 2.5rem;
+  color: var(--surface-900);
+  margin-bottom: 0.5rem;
+}
+
+.cabecalho-pagina p {
+  color: var(--surface-600);
+  font-size: 1.1rem;
+}
+
+/* --- GRID (GRADE) RESPONSIVA --- */
+.grade-projetos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Cria colunas automáticas */
+  gap: 2rem; /* Espaço entre os cards */
+}
+
+/* --- ESTILO DO CARD --- */
+.cartao-projeto {
+  background: var(--surface-card);
+  border: 1px solid var(--surface-border);
+  border-radius: 12px;
+  overflow: hidden; /* Para a imagem não sair das bordas arredondadas */
   display: flex;
   flex-direction: column;
-  height: 100%; 
-  
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%; /* Garante que todos tenham mesma altura na linha */
 }
 
-.project-card img {
+.cartao-projeto:hover {
+  transform: translateY(-5px); /* Efeito de levitar */
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* --- ÁREA DA IMAGEM --- */
+.area-imagem {
+  position: relative;
+  height: 200px;
   width: 100%;
-  height: 200px; 
+}
+
+.imagem-capa {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  flex-shrink: 0; 
 }
 
-mat-card-title{
-  font-family: "Lexend Exa", sans-serif;
-  font-weight: bolder;
-
+/* Posiciona a tag em cima da imagem */
+:host ::ng-deep .tag-categoria {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
-mat-card-content{
-  padding-bottom: 0;
-}
-
-
-.content_cards {
-  padding: 4px;
-  background: white;
+/* --- CONTEÚDO --- */
+.conteudo-cartao {
+  padding: 1.5rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
-  flex-grow: 1; 
-  font-family: "Lexend Exa", sans-serif;
+  flex-grow: 1; /* Ocupa o espaço restante vertical */
 }
 
-.project-description {
-  color: #4a5568;
-  line-height: 1;
-  margin-bottom: 20px;
-  font-size: 15px;
-  flex-grow: 1; 
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  font-family: "Lexend Exa", sans-serif;
-
+.cabecalho-cartao {
+  margin-bottom: 1rem;
 }
 
-.members-section{
+.titulo-projeto {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--surface-900);
+  margin: 0 0 0.5rem 0;
+}
+
+.data-projeto {
+  font-size: 0.85rem;
+  color: var(--surface-500);
   display: flex;
-  align-items: baseline;
-  font-size: 12px;
-  gap: 10px;
-  margin-top: 10px;
+  align-items: center;
+  gap: 0.4rem;
 }
 
-@media (max-width: 768px){
-  .cards-container{
-    display: flex;
-  }
-
+.descricao-projeto {
+  color: var(--surface-600);
+  line-height: 1.5;
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+  
+  /* Limita a 3 linhas com reticências (...) */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
+/* --- TAGS (CHIPS) --- */
+.area-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+:host ::ng-deep .chip-estilizado {
+  font-size: 0.75rem;
+  background: var(--surface-100);
+}
+
+.divisor {
+  height: 1px;
+  background-color: var(--surface-border);
+  margin: auto 0 1rem 0; /* "auto" empurra o divisor para baixo se sobrar espaço */
+  width: 100%;
+}
+
+/* --- RODAPÉ DO CARD --- */
+.rodape-cartao {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto; /* Garante que fique no fundo do card */
+}
+
+.membros-equipe {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--surface-600);
+  font-size: 0.85rem;
+}
+
+.icone-equipe {
+  font-size: 1.1rem;
+  color: var(--primary-color);
+}

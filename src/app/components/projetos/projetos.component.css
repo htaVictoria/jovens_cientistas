@@ -1,62 +1,93 @@
-
-
-:host {
+/* --- ESTRUTURA GERAL DA PÁGINA --- */
+.pagina-projetos {
+  min-height: 100vh;
+  background-color: var(--surface-ground); /* Cor de fundo cinza claro padrão */
   display: flex;
   flex-direction: column;
-  min-height: 100vh; 
-  background: linear-gradient(#032989, #04d459);
-  padding: 50px;
 }
 
-main{
-  padding: 100px;
-  gap: 20px;
-
-}
-
-.projects-container {
-  display: flex;
-  flex-direction: column;
+/* --- SEÇÃO DE DESTAQUE (CABEÇALHO) --- */
+.secao-destaque {
+  background-color: var(--surface-card); /* Fundo branco */
+  border-bottom: 1px solid var(--surface-border);
+  padding: 3rem 1rem;
   text-align: center;
-  justify-content: center;
-  max-width: 1400px;
-  margin: 0 auto;
-  margin-bottom: 5.4rem;
-  padding: 20px;
-  border: 2px solid whitesmoke;
-  border-radius: 16px;
 }
 
-
-
-h1 {
-  font-size: 2.5rem;
-  color: #ffffff;
-  margin-bottom: 0.5rem;
-  font-family: "Lexend Exa", sans-serif;
-  font-weight: 900;
+/* Responsividade: Mais espaço em telas maiores */
+@media (min-width: 768px) {
+  .secao-destaque {
+      padding: 4rem 2rem;
+  }
 }
 
- p {
+.cabecalho-titulo {
+  margin-bottom: 2rem;
+}
+
+.titulo-principal {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--surface-900); /* Preto suave */
+  margin: 0 0 1rem 0;
+}
+
+@media (min-width: 768px) {
+  .titulo-principal {
+      font-size: 2.5rem;
+  }
+}
+
+.texto-destaque {
+  color: var(--primary-color); /* Usa a cor principal do seu tema (azul/verde/etc) */
+}
+
+.subtitulo {
   font-size: 1.1rem;
-  color: #ffffff;
-  font-family: "Lexend Exa", sans-serif;}
-
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  gap: 2rem;
+  color: var(--surface-600); /* Cinza escuro */
+  line-height: 1.5;
+  max-width: 800px;
+  margin: 0 auto; /* Centraliza o texto */
 }
 
-@media (max-width: 768px){
+/* --- BARRA DE BUSCA --- */
+.container-busca {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
 
-  main{
-    padding: 20px;
-    padding-top: 60px;
-  }
+/* Wrapper para colocar o ícone dentro do input */
+.icone-input-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 500px; /* Largura máxima da barra de busca */
+}
 
-  .projects-grid{
-    display: flex;
-    flex-direction: column;
-  }
+.icone-input-wrapper i {
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  transform: translateY(-50%);
+  color: var(--surface-500);
+  z-index: 1;
+}
+
+.input-busca {
+  width: 100%;
+  padding-left: 2.5rem; /* Espaço para o ícone não ficar em cima do texto */
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-radius: 50px; /* Deixa a barra redondinha e moderna */
+}
+
+/* --- ÁREA DE CONTEÚDO --- */
+.secao-conteudo {
+  padding: 3rem 1rem;
+  flex: 1; /* Ocupa o resto da tela */
+}
+
+.limite-largura {
+  max-width: 1280px; /* Limita a largura em monitores gigantes */
+  margin: 0 auto;    /* Centraliza o bloco de cards */
 }

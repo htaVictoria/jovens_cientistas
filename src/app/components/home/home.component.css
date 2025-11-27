@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
 :host {
   display: flex;
   flex-direction: column;
@@ -25,4 +27,270 @@ img{
   img{
     display: none;
   }
+}
+
+/* --- Layout Geral da Seção --- */
+.secao-boas-vindas {
+  padding: 4rem 2rem; /* px-4 py-6 */
+  background-color: var(--surface-section);
+}
+
+/* Ajuste de padding para telas maiores */
+@media (min-width: 768px) {
+  .secao-boas-vindas {
+      padding: 4rem 3rem;
+  }
+}
+
+.secao-boas-vindas {
+  padding: 4rem 2rem;
+  background-color: var(--surface-ground);
+}
+
+@media (min-width: 768px) {
+  .secao-boas-vindas {
+      padding: 4rem 3rem;
+  }
+}
+
+.cabecalho-intro {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.subtitulo-destaque {
+  color: var(--primary-color);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  font-family: "Rubik", sans-serif
+}
+
+.titulo-principal {
+  color: var(--surface-900);
+  font-weight: 700;
+  font-size: 2rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-family: "Rubik", sans-serif
+}
+
+.texto-descricao {
+  color: var(--surface-600);
+  font-size: 1.1rem;
+  line-height: 1.5;
+  max-width: 40rem;
+  margin: 0 auto;
+  font-family: "Rubik", sans-serif
+}
+
+/* --- GRID DO LAYOUT (A parte importante) --- */
+.grade-pilares {
+  display: grid;
+  font-family: "Rubik", sans-serif; /*font dos cards*/
+  grid-template-columns: 1fr; 
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .grade-pilares {
+      grid-template-columns: repeat(3, 1fr); 
+      gap: 2rem;
+  }
+}
+
+/* --- Estilo dos Cards --- */
+.card-pilar {
+  background-color: var(--surface-card); 
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  
+  /* Sombra suave para parecer um card flutuando */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border: 1px solid var(--surface-border);
+  
+  /* Animação */
+  transition: all 0.3s ease;
+  height: 100%; /* Garante que todos tenham a mesma altura */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-pilar:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.titulo-card {
+  color: var(--surface-900);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 1rem 0 0.5rem 0;
+}
+
+.texto-card {
+  color: var(--surface-600);
+  line-height: 1.6;
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+/* --- Ícones --- */
+.container-icone {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.container-icone i {
+  font-size: 1.75rem;
+}
+
+/* Temas */
+.tema-azul { background-color: var(--blue-50); color: var(--blue-600); }
+.tema-laranja { background-color: var(--orange-50); color: var(--orange-600); }
+.tema-verde { background-color: var(--green-50); color: var(--green-600); }
+
+/* --- Botão --- */
+.container-botao {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+:host ::ng-deep .botao-arredondado {
+  border-radius: 50px;
+  padding: 0.8rem 2rem;
+  font-weight: 600;
+}
+
+
+
+
+
+/* --- Seção Geral --- */
+.secao-destaques {
+  padding: 4rem 2rem;
+  background-color: var(--surface-card); /* Fundo branco/neutro */
+}
+
+.cabecalho-secao {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.titulo-destaque {
+  font-size: 2rem;
+  color: var(--surface-900);
+  margin: 0 0 0.5rem 0;
+  font-weight: 700;
+}
+
+.subtitulo-destaque {
+  color: var(--surface-600);
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+/* --- Wrapper do Item do Carrossel --- */
+.item-carrossel {
+  padding: 0.75rem; /* Espaço entre os slides */
+  height: 100%;
+  cursor: pointer; /* Mãozinha ao passar o mouse */
+  text-decoration: none; /* Remove sublinhado do link */
+}
+
+/* --- O Card em Si --- */
+.card-projeto {
+  border: 1px solid var(--surface-border);
+  border-radius: 12px;
+  overflow: hidden; /* Garante que a imagem não saia das bordas arredondadas */
+  background: var(--surface-overlay);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efeito Hover no Card */
+.item-carrossel:hover .card-projeto {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  border-color: var(--primary-color); /* Borda fica colorida ao passar o mouse */
+}
+
+/* --- Imagem e Tag --- */
+.container-imagem {
+  position: relative;
+  height: 200px;
+  width: 100%;
+}
+
+.imagem-projeto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Garante que a imagem preencha sem distorcer */
+}
+
+.tag-categoria {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: var(--surface-900);
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* --- Textos --- */
+.conteudo-projeto {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Faz o conteúdo ocupar o espaço restante */
+}
+
+.titulo-projeto {
+  margin: 0 0 0.5rem 0;
+  color: var(--surface-900);
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.descricao-projeto {
+  color: var(--surface-600);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0 0 1.5rem 0;
+  /* Limita a 3 linhas de texto com reticências... */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.rodape-card {
+  margin-top: auto; /* Empurra o "Ver detalhes" para o fundo do card */
+}
+
+.texto-link {
+  color: var(--primary-color);
+  font-weight: 600;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }

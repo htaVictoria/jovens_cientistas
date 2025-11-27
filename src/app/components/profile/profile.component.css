@@ -1,14 +1,322 @@
-/* Fundo suave para a página de perfil */
-.bg-surface {
+/* Container principal */
+.container-perfil {
+    min-height: 100vh;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  p-card{
+    width: 900px;
+  }
+  /* Estilização do cartão */
+  ::ng-deep .cartao-perfil {
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+    overflow: hidden;
+    background: white;
+  }
+  
+  ::ng-deep .cartao-perfil .p-card-header {
+    padding: 0;
+  }
+  
+  ::ng-deep .cartao-perfil .p-card-body {
+    padding: 0;
+  }
+  
+  ::ng-deep .cartao-perfil .p-card-content {
+    padding: 0;
+  }
+  
+  /* Cabeçalho do cartão */
+  .cabecalho-cartao {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem 2rem 2.5rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .cabecalho-cartao::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: black;
+    animation: rotacao-lenta 20s linear infinite;
+  }
+  
+  @keyframes rotacao-lenta {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  
+  /* Avatar */
+  ::ng-deep .avatar-usuario {
+    border: 5px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: all 0.4s ease;
+    position: relative;
+    z-index: 1;
+  }
+  
+  ::ng-deep .avatar-usuario:hover {
+    transform: scale(1.08) translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    border-color: rgba(255, 255, 255, 0.5);
+  }
+  
+  /* Títulos */
+  .titulo-perfil {
+    margin: 1.5rem 0 0.5rem 0;
+    font-size: 2rem;
+    font-weight: 700;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 1;
+    letter-spacing: -0.5px;
+  }
+  
+  .subtitulo-perfil {
+    margin: 0;
+    opacity: 0.95;
+    font-size: 1rem;
+    font-weight: 400;
+    position: relative;
+    z-index: 1;
+    letter-spacing: 0.3px;
+  }
+  
+  /* Formulário */
+  .formulario-perfil {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2.5rem;
+    background: white;
+  }
+  
+  .grupo-campo {
+    width: 100%;
+    position: relative;
+  }
+  
+  /* Campos de entrada */
+  ::ng-deep .campo-entrada {
+    width: 100%;
+    padding: 1rem 1rem;
+    border-radius: 10px;
+    border: 2px solid #e0e0e0;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: white;
+  }
+  
+  ::ng-deep .campo-entrada:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+    outline: none;
+  }
+  
+  ::ng-deep .campo-entrada:disabled {
     background-color: #f8f9fa;
-}
+    color: #495057;
+    cursor: not-allowed;
+    border-color: #e9ecef;
+  }
+  
+  /* Labels flutuantes */
+  ::ng-deep .grupo-campo label {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #666;
+    transition: all 0.3s ease;
+  }
+  
+  ::ng-deep .grupo-campo .p-float-label input:focus ~ label,
+  ::ng-deep .grupo-campo .p-float-label input.p-filled ~ label {
+    color: #667eea;
+  }
+  
+  /* Área de botões */
+  .area-botoes {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+  }
+  
+  /* Botão Editar */
+  ::ng-deep .botao-editar {
+    border: none;
+    padding: 0.85rem 2.5rem;
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  }
+  
+  ::ng-deep .botao-editar:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(102, 126, 234, 0.4);
+  }
+  
+  ::ng-deep .botao-editar:active {
+    transform: translateY(0);
+  }
+  
+  /* Botão Salvar */
+  ::ng-deep .botao-salvar {
+    border: none;
+    padding: 0.85rem 2.5rem;
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(56, 239, 125, 0.3);
+  }
+  
+  ::ng-deep .botao-salvar:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(56, 239, 125, 0.4);
+    background: linear-gradient(135deg, #1aa99c 0%, #4df78d 100%);
+  }
+  
+  ::ng-deep .botao-salvar:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+  }
+  
+  ::ng-deep .botao-salvar:active:not(:disabled) {
+    transform: translateY(0);
+  }
+  
+  /* Botão Cancelar */
+  ::ng-deep .botao-cancelar {
+    color: #666;
+    border: 2px solid #e0e0e0;
+    background: white;
+    padding: 0.85rem 2.5rem;
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+  }
+  
+  ::ng-deep .botao-cancelar:hover {
+    background-color: #f8f9fa;
+    border-color: #adb5bd;
+    color: #495057;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  ::ng-deep .botao-cancelar:active {
+    transform: translateY(0);
+  }
+  
+  /* Ícones dos botões */
+  ::ng-deep .area-botoes .p-button-icon {
+    font-size: 1.1rem;
+  }
+  
+  /* Responsividade para tablets */
+  @media (max-width: 768px) {
+    .container-perfil {
+      padding: 1.5rem;
+    }
+  
+    .formulario-perfil {
+      padding: 2rem 1.5rem;
+      gap: 1.5rem;
+    }
+  
+    .area-botoes {
+      flex-direction: column;
+    }
+    
+    .area-botoes ::ng-deep button {
+      width: 100%;
+      justify-content: center;
+    }
+  
+    .titulo-perfil {
+      font-size: 1.75rem;
+    }
+  
+    .subtitulo-perfil {
+      font-size: 0.95rem;
+    }
+  
+    .cabecalho-cartao {
+      padding: 2.5rem 1.5rem 2rem;
+    }
+  
+    ::ng-deep .cartao-perfil {
+      border-radius: 16px;
+    }
 
-/* Ajuste caso esteja usando tema escuro ou queira forçar cores */
-:host ::ng-deep .p-card .p-card-content {
-    padding-top: 0;
-    height: 100dvh;
-}
+    p-card{
+      width: 100%;
+    }
+  }
+  
+  /* Responsividade para mobile */
+  @media (max-width: 480px) {
+    .container-perfil {
+      padding: 1rem;
+    }
+  
+    ::ng-deep .cartao-perfil {
+      border-radius: 12px;
+    }
 
-.bg-primary-reverse {
-    background: linear-gradient(180deg, rgba(33, 150, 243, 0.05) 0%, rgba(255,255,255,0) 100%);
-}
+    p-card{
+      width: 100%;
+    }
+  
+    .formulario-perfil {
+      padding: 1.5rem 1rem;
+      gap: 1.25rem;
+    }
+  
+    .titulo-perfil {
+      font-size: 1.5rem;
+    }
+  
+    .subtitulo-perfil {
+      font-size: 0.875rem;
+    }
+  
+    .cabecalho-cartao {
+      padding: 2rem 1rem 1.5rem;
+    }
+  
+    ::ng-deep .campo-entrada {
+      padding: 0.875rem;
+      font-size: 0.95rem;
+    }
+  
+    ::ng-deep .botao-editar,
+    ::ng-deep .botao-salvar,
+    ::ng-deep .botao-cancelar {
+      padding: 0.75rem 2rem;
+      font-size: 0.95rem;
+    }
+  }
+  
+  /* Animações suaves */
+  * {
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+  }

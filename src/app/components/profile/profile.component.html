@@ -1,65 +1,77 @@
-<p-toast></p-toast> <div class="flex justify-content-center align-items-center min-h-screen p-4 bg-surface">
-  
-  <p-card styleClass="w-full md:w-30rem shadow-4">
-    
+<p-toast></p-toast>
+<div class="container-perfil">
+  <p-card styleClass="cartao-perfil">
     <ng-template pTemplate="header">
-      <div class="flex flex-column align-items-center pt-5 pb-3 bg-primary-reverse border-round-top">
-        <p-avatar 
-          icon="pi pi-user" 
-          styleClass="mr-2" 
-          size="xlarge" 
-          shape="circle" 
-          [style]="{'background-color': '#2196F3', 'color': '#ffffff'}">
-        </p-avatar>
-        <h2 class="mt-2 mb-0">Meu Perfil</h2>
-        <span class="text-sm text-500">Gerencie suas informações</span>
+      <div class="cabecalho-cartao">
+        <p-avatar
+          icon="pi pi-user"
+          styleClass="avatar-usuario"
+          size="xlarge"
+          shape="circle"
+          [style]="{'background-color': 'black', 'color': 'white', 'border': '4px solid white'}"
+        ></p-avatar>
+        <h3 class="titulo-perfil">Meu Perfil</h3>
       </div>
     </ng-template>
 
-    <form [formGroup]="profileForm" (ngSubmit)="saveChanges()" class="flex flex-column gap-4 mt-3">
-      
-      <p-floatLabel variant="in">
-        <input pInputText id="nome" formControlName="nome" class="w-full" />
+    <form [formGroup]="formularioPerfil" (ngSubmit)="salvarAlteracoes()" class="formulario-perfil">
+      <p-floatLabel variant="in" class="grupo-campo">
+        <input 
+          pInputText 
+          id="nome" 
+          formControlName="nome" 
+          class="campo-entrada" 
+        />
         <label for="nome">Nome Completo</label>
       </p-floatLabel>
 
-      <p-floatLabel variant="in">
-        <input pInputText id="email" formControlName="email" class="w-full" />
+      <p-floatLabel variant="in" class="grupo-campo">
+        <input 
+          pInputText 
+          id="email" 
+          formControlName="email" 
+          class="campo-entrada" 
+        />
         <label for="email">E-mail</label>
       </p-floatLabel>
 
-      <p-floatLabel variant="in">
-        <input pInputText id="turma" formControlName="turma" class="w-full" />
-        <label for="turma">Turma / Cargo</label>
+      <p-floatLabel variant="in" class="grupo-campo">
+        <input 
+          pInputText 
+          id="turma" 
+          formControlName="turma" 
+          class="campo-entrada" 
+        />
+        <label for="turma">Turma</label>
       </p-floatLabel>
 
-      <div class="flex gap-2 mt-2">
-        
-        @if (!isEditing()) {
-          <p-button 
-            label="Editar Dados" 
-            icon="pi pi-pencil" 
-            styleClass="w-full p-button-outlined" 
-            (onClick)="toggleEdit()">
-          </p-button>
-        } @else {
-          <p-button 
-            label="Salvar Alterações" 
-            icon="pi pi-check" 
-            type="submit" 
-            styleClass="w-full"
-            [disabled]="profileForm.invalid">
-          </p-button>
-          
-          <p-button 
-            icon="pi pi-times" 
-            severity="secondary" 
-            (onClick)="toggleEdit()" 
-            pTooltip="Cancelar">
-          </p-button>
-        }
-      </div>
+      <div class="area-botoes">
+        <p-button 
+          *ngIf="!estaEditando()"
+          label="Editar Dados"
+          icon="pi pi-pencil"
+          styleClass="botao-editar"
+          (onClick)="alternarEdicao()"
+        ></p-button>
 
+        <ng-container *ngIf="estaEditando()">
+          <p-button
+            label="Salvar Alterações"
+            icon="pi pi-check"
+            type="submit"
+            styleClass="botao-salvar"
+            [disabled]="formularioPerfil.invalid"
+          ></p-button>
+
+          <p-button
+            icon="pi pi-times"
+            label="Cancelar"
+            (onClick)="alternarEdicao()"
+            styleClass="botao-cancelar"
+            [outlined]="true"
+          ></p-button>
+        </ng-container>
+      </div>
     </form>
   </p-card>
 </div>

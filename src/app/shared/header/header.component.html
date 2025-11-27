@@ -1,23 +1,77 @@
-<mat-toolbar color="primary" class="toolbar">
+<mat-sidenav-container class="sidenav-container" [hasBackdrop]="true">
+  
+  <mat-sidenav #sidenav mode="over" position="end" fixedInViewport="true">
+    <div class="sidenav-header">
+      <h3>Menu</h3>
+      <button mat-icon-button (click)="sidenav.close()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
 
-  <div class="logo-container">
-    <img src="assets/logo_st_t.png" alt="Logo">
-    <p>Jovens Cientistas</p>
-  </div>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/" (click)="sidenav.close()">Home</a>
+      <a mat-list-item routerLink="/quem-somos" (click)="sidenav.close()">Quem Somos</a>
+      <a mat-list-item routerLink="/projetos" (click)="sidenav.close()">Projetos</a>
+      
+      <mat-divider></mat-divider>
 
+      @if (user()) {
+        <a mat-list-item routerLink="/perfil" (click)="sidenav.close()">
+          <mat-icon matListItemIcon>person</mat-icon>
+          <span matListItemTitle>Minha Conta</span>
+        </a>
+        <a mat-list-item routerLink="/diario-de-bordo" (click)="sidenav.close()">
+          <mat-icon matListItemIcon></mat-icon>
+          <span matListItemTitle>Diário de Bordo</span>
+        </a>
+        <a mat-list-item (click)="logout(); sidenav.close()">
+          <mat-icon matListItemIcon>logout</mat-icon>
+          <span matListItemTitle>Sair</span>
+        </a>
+      } @else {
+        <a mat-list-item routerLink="/login" (click)="sidenav.close()">
+          <mat-icon matListItemIcon>login</mat-icon>
+          <span matListItemTitle>Entrar / Cadastrar</span>
+        </a>
+      }
+    </mat-nav-list>
+  </mat-sidenav>
 
-  <span class="spacer"></span>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary" class="toolbar">
+      
+      <div class="logo-container">
+        <img src="assets/logo_st_t.png" alt="Logo">
+        <p>Jovens Cientistas</p>
+      </div>
+    
+      <span class="spacer"></span>
+    
+      <nav class="header_nav desktop-only">
+        <a mat-button routerLink="/">Home</a>
+        <a mat-button routerLink="/quem-somos">Quem Somos</a>
+        <a mat-button routerLink="/projetos">Projetos</a>
+    
+        @if (user()) {
+          <button mat-button [matMenuTriggerFor]="menuProfile">
+            <mat-icon>account_circle</mat-icon>
+            <span class="ml-2">Perfil</span>
+          </button>
+          <mat-menu #menuProfile="matMenu">
+            <button mat-menu-item routerLink="/perfil">Minha Conta</button>
+            <button mat-menu-item routerLink="/diario-de-bordo">Diário de Bordo</button>
+            <button mat-menu-item (click)="logout()">Sair</button>
+          </mat-menu>
+        } @else {
+          <a mat-button routerLink="/login" class="btn-login">Entrar</a>
+        }
+      </nav>
+    
+      <button mat-icon-button class="mobile-menu-button mobile-only" (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+    
+    </mat-toolbar>
+  </mat-sidenav-content>
 
-  <nav class="header_nav">
-    <a mat-button routerLink="">Home</a>
-    <a mat-button routerLink="/quem-somos">Quem Somos</a>
-    <a mat-button routerLink="/projetos">Projetos</a>
-    <a mat-button routerLink="/contato">Contato</a>
-  </nav>
-
-  <button mat-icon-button class="mobile-menu-button" >
-      <mat-icon>menu</mat-icon>
-    </button>
-
-</mat-toolbar>
-
+</mat-sidenav-container>

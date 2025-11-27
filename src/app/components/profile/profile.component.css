@@ -1,0 +1,14 @@
+/* Fundo suave para a página de perfil */
+.bg-surface {
+    background-color: #f8f9fa;
+}
+
+/* Ajuste caso esteja usando tema escuro ou queira forçar cores */
+:host ::ng-deep .p-card .p-card-content {
+    padding-top: 0;
+    height: 100dvh;
+}
+
+.bg-primary-reverse {
+    background: linear-gradient(180deg, rgba(33, 150, 243, 0.05) 0%, rgba(255,255,255,0) 100%);
+}

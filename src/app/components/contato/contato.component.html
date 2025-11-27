@@ -1,38 +1,85 @@
-<section>
-  <div class="card">
-    <div class="titulo-form">
-      <p>Junte-se a Nós!</p>
+<section class="flex justify-content-center align-items-center min-h-screen">
+  <div class="card p-4 shadow-2 border-round w-full md:w-30rem">
+    
+    <div class="titulo-form text-center mb-4">
+      <h2>Junte-se a Nós!</h2>
     </div>
-    <div class="form-container">
-      <form action="">
-  
-  
-        <p-float-label variant="in" >
-          <input pInputText type="text" name="nome" id="nome" fluid>
-          <label for="nome">Nome: </label>
-        </p-float-label>
-  
-        <p-float-label variant="in">
-          <input pInputText type="text" name="email" id="email" fluid>
-          <label for="email">E-mail: </label>
-        </p-float-label>
-        <p-float-label variant="in">
-          <input pInputText type="text" name="turma" id="turma" fluid>
-          <label for="turma">Turma: </label>
-        </p-float-label>
-  
-          <p-multiselect [options]="area" [(ngModel)]="areasInteresse" name="areasInteresse" optionLabel="nome" display="chip" class="w-full md:w-80" filter="none" /> 
 
-          <div class="termos-de-uso">
-            <p-checkbox id="lgpd" [(ngModel)]="checked" [binary]="true" required="" />
-            <label for="lgpd">oi</label>
-          </div>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="flex flex-column gap-3">
+      
+      <p-floatLabel variant="in">
+        <input pInputText id="nome" formControlName="nome" class="w-full" fluid />
+        <label for="nome">Nome</label>
+      </p-floatLabel>
+      <small class="p-error" *ngIf="registerForm.get('nome')?.invalid && registerForm.get('nome')?.touched">
+        Nome é obrigatório.
+      </small>
 
-          <a routerLink="" pButton>
-            <span type="submit" pButtonLabel>Router Link</span>
-        </a>
+      <p-floatLabel variant="in">
+        <input pInputText id="email" type="email" formControlName="email" class="w-full" fluid />
+        <label for="email">E-mail</label>
+      </p-floatLabel>
+      <small class="p-error" *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched">
+        Email inválido.
+      </small>
+
+      <p-floatLabel variant="in">
+        <input pInputText id="turma" formControlName="turma" class="w-full" fluid />
+        <label for="turma">Turma</label>
+      </p-floatLabel>
+
+      <div id="areas-interesse">
+        <label for="areasInteresse" class="block mb-2 text-sm text-600">Áreas de Interesse:</label>
+        <p-multiSelect 
+          [options]="areasOptions" 
+          formControlName="areasInteresse" 
+          optionLabel="nome" 
+          display="chip" 
+          styleClass="w-full"
+          placeholder="Selecione">
+        </p-multiSelect>
+      </div>
+
+      <p-floatLabel variant="in">
+        <p-password 
+          inputId="in_label" 
+          formControlName="senha" 
+          [toggleMask]="true" 
+          [feedback]="false" 
+          styleClass="w-full"
+          [inputStyle]="{'width':'100%'}">
+        </p-password>
+        <label for="in_label">Digite sua senha</label>
+      </p-floatLabel>
+      <small class="p-error" *ngIf="registerForm.get('senha')?.invalid && registerForm.get('senha')?.touched">
+        Senha deve ter no mínimo 6 caracteres.
+      </small>
+
+      <div class="flex align-items-center gap-2">
+        <p-checkbox 
+          formControlName="termos" 
+          [binary]="true" 
+          inputId="lgpd">
+        </p-checkbox>
+        <label for="lgpd" class="text-sm">
+          Eu concordo com a <a target="_blank" href="/politica-privacidade">Política de privacidade</a> e com os <a target="_blank" href="/termos-de-uso">Termos de uso</a>.
+        </label>
+      </div>
+      <small class="p-error block" *ngIf="registerForm.get('termos')?.invalid && registerForm.get('termos')?.touched">
+        Você precisa aceitar os termos para continuar.
+      </small>
+
+      <p-button 
+        label="Cadastrar-se" 
+        type="submit" 
+        styleClass="w-full" 
+        [disabled]="registerForm.invalid" fluid>
+      </p-button>
+
+      <div class="text-center mt-2">
+        <span class="text-sm">Já tem conta? <a routerLink="/login">Faça login</a></span>
+      </div>
+
     </form>
   </div>
-  </div>
 </section>
-

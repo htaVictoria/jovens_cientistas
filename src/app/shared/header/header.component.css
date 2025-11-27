@@ -3,6 +3,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Aldrich&family=Oswald:wght@200..700&display=swap');
 
 *{
+  color: white ;
+}
+
+.mdc-list-item__primary-text{
   color: white;
 }
 
@@ -14,7 +18,8 @@
 .toolbar {
   padding-inline-end: 20px;
   background-color: #000000 ;
-  width: 100vw;
+  width: 100%;
+  height: auto;
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -79,24 +84,64 @@
   opacity: 1;
 }
 
-.mobile-menu-button {
+
+
+
+.sidenav-container {
+  background-color: transparent;
+}
+
+/* Estilo do Menu Lateral (Sidenav) */
+mat-sidenav {
+  width: 250px;
+  background-color: #1e1e1e; /* Cor escura baseada no seu print */
+  color: white;
+}
+
+.sidenav-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background-color: #000; /* Fundo mais escuro para o topo do menu */
+}
+
+/* Links do Sidenav */
+mat-nav-list a {
+  color: white !important;
+  font-family: "Lexend Exa", sans-serif;
+}
+
+mat-icon {
+  color: white;
+}
+
+/* === RESPONSIVIDADE (Media Queries) === */
+
+/* Padrão: Desktop */
+.mobile-only {
   display: none;
 }
 
+.desktop-only {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* Mobile (Abaixo de 768px) */
 @media (max-width: 768px) {
-  .header_nav {
-    display: none;
+  .desktop-only {
+    display: none; /* Esconde menu desktop */
   }
 
-  .mobile-menu-button {
-    display: inline-flex;
+  .mobile-only {
+    display: block; /* Mostra botão hamburguer */
   }
-
-  .toolbar {
-    padding: 0 10px;
-  }
-
-  .logo-container img {
-    width: 50px;
+  
+  .logo-container p {
+    font-size: 0.9rem; /* Ajuste opcional para logo não quebrar */
   }
 }
+
+

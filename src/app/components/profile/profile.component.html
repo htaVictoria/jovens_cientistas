@@ -1,0 +1,65 @@
+<p-toast></p-toast> <div class="flex justify-content-center align-items-center min-h-screen p-4 bg-surface">
+  
+  <p-card styleClass="w-full md:w-30rem shadow-4">
+    
+    <ng-template pTemplate="header">
+      <div class="flex flex-column align-items-center pt-5 pb-3 bg-primary-reverse border-round-top">
+        <p-avatar 
+          icon="pi pi-user" 
+          styleClass="mr-2" 
+          size="xlarge" 
+          shape="circle" 
+          [style]="{'background-color': '#2196F3', 'color': '#ffffff'}">
+        </p-avatar>
+        <h2 class="mt-2 mb-0">Meu Perfil</h2>
+        <span class="text-sm text-500">Gerencie suas informações</span>
+      </div>
+    </ng-template>
+
+    <form [formGroup]="profileForm" (ngSubmit)="saveChanges()" class="flex flex-column gap-4 mt-3">
+      
+      <p-floatLabel variant="in">
+        <input pInputText id="nome" formControlName="nome" class="w-full" />
+        <label for="nome">Nome Completo</label>
+      </p-floatLabel>
+
+      <p-floatLabel variant="in">
+        <input pInputText id="email" formControlName="email" class="w-full" />
+        <label for="email">E-mail</label>
+      </p-floatLabel>
+
+      <p-floatLabel variant="in">
+        <input pInputText id="turma" formControlName="turma" class="w-full" />
+        <label for="turma">Turma / Cargo</label>
+      </p-floatLabel>
+
+      <div class="flex gap-2 mt-2">
+        
+        @if (!isEditing()) {
+          <p-button 
+            label="Editar Dados" 
+            icon="pi pi-pencil" 
+            styleClass="w-full p-button-outlined" 
+            (onClick)="toggleEdit()">
+          </p-button>
+        } @else {
+          <p-button 
+            label="Salvar Alterações" 
+            icon="pi pi-check" 
+            type="submit" 
+            styleClass="w-full"
+            [disabled]="profileForm.invalid">
+          </p-button>
+          
+          <p-button 
+            icon="pi pi-times" 
+            severity="secondary" 
+            (onClick)="toggleEdit()" 
+            pTooltip="Cancelar">
+          </p-button>
+        }
+      </div>
+
+    </form>
+  </p-card>
+</div>

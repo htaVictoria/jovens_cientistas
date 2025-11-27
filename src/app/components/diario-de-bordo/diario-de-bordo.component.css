@@ -1,0 +1,313 @@
+:host ::ng-deep .p-dialog .p-calendar {
+  width: 100%;
+}
+
+:host ::ng-deep .p-dialog .p-calendar .p-inputtext {
+  width: 100%;
+}
+
+/* Mantendo seus estilos de Card que estavam bonitos */
+:host ::ng-deep .p-toolbar {
+  border-radius: 10px;
+  background: var(--surface-card);
+  padding: 0.75rem 1rem;
+}
+
+:host ::ng-deep .p-card {
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.entry-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Estilos de scroll do dialog */
+:host ::ng-deep .p-dialog .p-dialog-content {
+  padding: 0 1.5rem 1.5rem 1.5rem;
+}
+
+/* Asterisco vermelho */
+label.font-bold::after {
+  content: " *";
+  color: var(--red-500);
+  display: none; /* Escondido por padrão */
+}
+
+/* Mostra o asterisco apenas nos campos obrigatórios específicos */
+label[for="title"]::after,
+label[for="content"]::after {
+  display: inline;
+}
+  .p-card {
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+  }
+
+  .entry-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Ajustes do Dialog */
+  .p-dialog {
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .p-dialog .p-dialog-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--surface-border);
+  }
+
+  .p-dialog .p-dialog-content {
+    padding: 1.5rem;
+    max-height: calc(90vh - 200px);
+    overflow-y: auto;
+  }
+
+  .p-dialog .p-dialog-footer {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid var(--surface-border);
+  }
+
+  /* Campos do formulário */
+  .field {
+    margin-bottom: 1.25rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .field:last-child {
+    margin-bottom: 0;
+  }
+
+  .field label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  /* Ajustes para inputs e textareas */
+  .p-inputtext,
+  .p-inputtextarea {
+    width: 100%;
+    font-size: 0.95rem;
+    padding: 0.75rem;
+    border-radius: 6px;
+  }
+
+  .p-inputtextarea {
+    resize: vertical;
+    min-height: 80px;
+    font-family: inherit;
+    line-height: 1.5;
+  }
+
+  /* Calendar */
+  .p-calendar {
+    width: 100%;
+  }
+
+  .p-calendar .p-inputtext {
+    width: 100%;
+  }
+
+  /* Dropdown */
+  .p-dropdown {
+    width: 100%;
+  }
+
+  /* Botões do footer do dialog */
+  .p-dialog-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+  }
+
+  .p-dialog-footer .p-button {
+    min-width: 100px;
+  }
+
+  /* Ajustes responsivos para mobile */
+  @media (max-width: 767px) {
+    .p-dialog {
+      width: 95vw !important;
+      margin: 1rem;
+    }
+
+    .p-dialog .p-dialog-header {
+      padding: 1rem;
+    }
+
+    .p-dialog .p-dialog-content {
+      padding: 1rem;
+      max-height: calc(90vh - 180px);
+    }
+
+    .p-dialog .p-dialog-footer {
+      padding: 0.75rem 1rem;
+      flex-direction: column-reverse;
+    }
+
+    .p-dialog-footer .p-button {
+      width: 100%;
+      min-width: unset;
+    }
+
+    .p-inputtext,
+    .p-inputtextarea {
+      font-size: 0.875rem;
+      padding: 0.625rem;
+    }
+
+    .field {
+      margin-bottom: 1rem;
+    }
+
+    .field label {
+      font-size: 0.875rem;
+    }
+
+    .p-button-sm {
+      padding: 0.5rem;
+    }
+
+    .p-button-sm .p-button-icon {
+      font-size: 1rem;
+    }
+
+    .p-toolbar {
+      padding: 0.5rem 0.75rem;
+    }
+
+    .p-card .p-card-body {
+      padding: 1rem;
+    }
+
+    .p-card .p-card-content {
+      padding: 0;
+    }
+  }
+
+  /* Ajustes para tablets */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .p-dialog {
+      width: 85vw !important;
+      max-width: 700px;
+    }
+
+    .p-inputtext,
+    .p-inputtextarea {
+      font-size: 0.9375rem;
+    }
+  }
+
+  /* Ajustes para desktop */
+  @media (min-width: 1024px) {
+    .p-dialog {
+      width: 70vw !important;
+      max-width: 800px;
+    }
+
+    .p-inputtext,
+    .p-inputtextarea {
+      font-size: 1rem;
+    }
+  }
+
+  /* Panel de observações */
+  .observation-panel {
+    margin-top: 0.5rem;
+  }
+
+  .observation-panel .p-panel-header {
+    font-size: 0.875rem;
+  }
+
+  @media (min-width: 768px) {
+    .observation-panel .p-panel-header {
+      font-size: 1rem;
+    }
+  }
+
+  /* Touch targets maiores para mobile */
+  @media (max-width: 767px) {
+    .p-button {
+      min-height: 2.75rem;
+      min-width: 2.75rem;
+    }
+
+    .p-inputtext,
+    .p-inputtextarea,
+    .p-dropdown {
+      min-height: 2.75rem;
+    }
+  }
+
+  /* Ajustes para chips e tags */
+  .p-chip,
+  .p-tag {
+    font-size: 0.75rem;
+  }
+
+  @media (min-width: 768px) {
+    .p-chip,
+    .p-tag {
+      font-size: 0.875rem;
+    }
+  }
+
+  /* Scroll suave no dialog */
+  .p-dialog-content {
+    scroll-behavior: smooth;
+  }
+
+  .p-dialog-content::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .p-dialog-content::-webkit-scrollbar-track {
+    background: var(--surface-ground);
+    border-radius: 3px;
+  }
+
+  .p-dialog-content::-webkit-scrollbar-thumb {
+    background: var(--surface-400);
+    border-radius: 3px;
+  }
+
+  .p-dialog-content::-webkit-scrollbar-thumb:hover {
+    background: var(--surface-500);
+  }
+
+  /* Melhorar espaçamento entre campos */
+  .dialog-responsive .p-dialog-content > div {
+    padding: 0.25rem 0.5rem;
+  }
+
+  /* Placeholder mais visível */
+  .p-inputtext::placeholder,
+  .p-inputtextarea::placeholder {
+    color: var(--text-color-secondary);
+    opacity: 0.6;
+  }
+
+  /* Focus states mais visíveis */
+  .p-inputtext:focus,
+  .p-inputtextarea:focus,
+  .p-calendar:focus-within .p-inputtext,
+  .p-dropdown:focus-within {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(var(--primary-color-rgb), 0.2);
+  }
+
+  /* Asterisco vermelho para campos obrigatórios */
+  .field label:has(+ input:required)::after,
+  .field label:has(+ textarea:required)::after {
+    content: ' *';
+    color: var(--red-500);
+  }

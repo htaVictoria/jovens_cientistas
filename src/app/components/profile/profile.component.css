@@ -10,7 +10,7 @@
   p-card{
     width: 900px;
   }
-  /* Estilização do cartão */
+
   ::ng-deep .cartao-perfil {
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
     border-radius: 20px;
@@ -30,7 +30,6 @@
     padding: 0;
   }
   
-  /* Cabeçalho do cartão */
   .cabecalho-cartao {
     display: flex;
     flex-direction: column;
@@ -53,11 +52,6 @@
     animation: rotacao-lenta 20s linear infinite;
   }
   
-  @keyframes rotacao-lenta {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-  }
-  
   /* Avatar */
   ::ng-deep .avatar-usuario {
     border: 5px solid rgba(255, 255, 255, 0.3);
@@ -73,7 +67,6 @@
     border-color: rgba(255, 255, 255, 0.5);
   }
   
-  /* Títulos */
   .titulo-perfil {
     margin: 1.5rem 0 0.5rem 0;
     font-size: 2rem;
@@ -94,7 +87,6 @@
     letter-spacing: 0.3px;
   }
   
-  /* Formulário */
   .formulario-perfil {
     display: flex;
     flex-direction: column;
@@ -108,7 +100,6 @@
     position: relative;
   }
   
-  /* Campos de entrada */
   ::ng-deep .campo-entrada {
     width: 100%;
     padding: 1rem 1rem;
@@ -132,7 +123,6 @@
     border-color: #e9ecef;
   }
   
-  /* Labels flutuantes */
   ::ng-deep .grupo-campo label {
     font-size: 0.95rem;
     font-weight: 500;
@@ -145,7 +135,6 @@
     color: #667eea;
   }
   
-  /* Área de botões */
   .area-botoes {
     display: flex;
     gap: 1rem;
@@ -154,7 +143,6 @@
     flex-wrap: wrap;
   }
   
-  /* Botão Editar */
   ::ng-deep .botao-editar {
     border: none;
     padding: 0.85rem 2.5rem;
@@ -174,7 +162,6 @@
     transform: translateY(0);
   }
   
-  /* Botão Salvar */
   ::ng-deep .botao-salvar {
     border: none;
     padding: 0.85rem 2.5rem;
@@ -202,7 +189,6 @@
     transform: translateY(0);
   }
   
-  /* Botão Cancelar */
   ::ng-deep .botao-cancelar {
     color: #666;
     border: 2px solid #e0e0e0;
@@ -226,12 +212,10 @@
     transform: translateY(0);
   }
   
-  /* Ícones dos botões */
   ::ng-deep .area-botoes .p-button-icon {
     font-size: 1.1rem;
   }
   
-  /* Responsividade para tablets */
   @media (max-width: 768px) {
     .container-perfil {
       padding: 1.5rem;
@@ -272,7 +256,6 @@
     }
   }
   
-  /* Responsividade para mobile */
   @media (max-width: 480px) {
     .container-perfil {
       padding: 1rem;
@@ -316,7 +299,6 @@
     }
   }
   
-  /* Animações suaves */
   * {
     transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
   }

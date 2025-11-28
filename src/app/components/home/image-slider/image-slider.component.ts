@@ -59,7 +59,7 @@ export class ImageSliderComponent implements OnInit, OnDestroy {
             this.goToNext();
           });
         }
-      }, 3000);
+      }, 5000);
     });
   }
 

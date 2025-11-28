@@ -96,6 +96,14 @@ img{
   margin: 0 auto;
 }
 
+#card1{
+  background-color: #FF9E57;
+}
+#card2{}
+#card3{}
+
+
+
 @media (min-width: 768px) {
   .grade-pilares {
       grid-template-columns: repeat(3, 1fr); 
@@ -201,96 +209,49 @@ img{
   font-size: 1.1rem;
 }
 
-/* --- Wrapper do Item do Carrossel --- */
-.item-carrossel {
-  padding: 0.75rem; /* Espaço entre os slides */
-  height: 100%;
-  cursor: pointer; /* Mãozinha ao passar o mouse */
-  text-decoration: none; /* Remove sublinhado do link */
-}
-
-/* --- O Card em Si --- */
-.card-projeto {
+.card-fixo {
   border: 1px solid var(--surface-border);
   border-radius: 12px;
-  overflow: hidden; /* Garante que a imagem não saia das bordas arredondadas */
-  background: var(--surface-overlay);
-  height: 100%;
+  padding: 1rem;
+  background: var(--surface-card);
+  height: 420px;             /* ALTURA PADRÃO DO CARD */
   display: flex;
   flex-direction: column;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Efeito Hover no Card */
-.item-carrossel:hover .card-projeto {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-  border-color: var(--primary-color); /* Borda fica colorida ao passar o mouse */
-}
-
-/* --- Imagem e Tag --- */
-.container-imagem {
+.img-wrapper {
+  height: 220px;
   position: relative;
-  height: 200px;
-  width: 100%;
+  margin-bottom: 1rem;
 }
 
-.imagem-projeto {
+.img-wrapper img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Garante que a imagem preencha sem distorcer */
+  object-fit: cover;
+  border-radius: 8px;
 }
 
-.tag-categoria {
+.tag-img {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background-color: rgba(255, 255, 255, 0.9);
-  color: var(--surface-900);
-  padding: 0.25rem 0.75rem;
-  border-radius: 20px;
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  left: 10px;
+  top: 10px;
 }
 
-/* --- Textos --- */
-.conteudo-projeto {
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1; /* Faz o conteúdo ocupar o espaço restante */
-}
-
-.titulo-projeto {
-  margin: 0 0 0.5rem 0;
-  color: var(--surface-900);
-  font-size: 1.25rem;
-  font-weight: 600;
-}
-
-.descricao-projeto {
+.descricao {
+  min-height: 40px;
   color: var(--surface-600);
-  font-size: 0.9rem;
-  line-height: 1.5;
-  margin: 0 0 1.5rem 0;
-  /* Limita a 3 linhas de texto com reticências... */
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  margin-bottom: 1rem;
 }
 
-.rodape-card {
-  margin-top: auto; /* Empurra o "Ver detalhes" para o fundo do card */
-}
-
-.texto-link {
-  color: var(--primary-color);
-  font-weight: 600;
-  font-size: 0.9rem;
+.rodape {
+  margin-top: auto;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  justify-content: space-between;
+}
+
+.p-carousel-item,
+.p-carousel-item > div {
+  height: 100% !important;
 }

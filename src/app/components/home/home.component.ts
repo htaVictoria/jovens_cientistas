@@ -6,12 +6,13 @@ import { RouterModule } from '@angular/router';
 import { Project, ProjetosService } from '../../services/projetos/projetos.service';
 import { CarouselModule } from 'primeng/carousel';
 import { TagModule } from 'primeng/tag';
+import { CardModule } from "primeng/card";
 
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [ImageSliderComponent, ButtonModule, CommonModule, RouterModule, CarouselModule, TagModule],
+  imports: [ImageSliderComponent, ButtonModule, CommonModule, RouterModule, CarouselModule, TagModule, CardModule],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'] 
 })

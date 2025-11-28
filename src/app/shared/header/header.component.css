@@ -3,37 +3,55 @@
 @import url('https://fonts.googleapis.com/css2?family=Aldrich&family=Oswald:wght@200..700&display=swap');
 @import "primeicons/primeicons.css";
 
-*{
-  color: white ;
-}
-
-.mdc-list-item__primary-text{
+* {
   color: white;
 }
 
-.mat-toolbar-row, .mat-toolbar-single-row{
+/* === CRÍTICO PARA O SIDENAV FUNCIONAR CORRETAMENTE === */
+
+/* Remove a altura do container para ele não bloquear o conteúdo da página abaixo do header */
+.sidenav-container {
+  background-color: transparent;
+  width: 100%;
+  height: auto; 
+  position: static; /* Importante para não criar contexto de empilhamento errado */
+}
+
+/* Força o Sidenav a ficar acima de TUDO */
+.app-sidenav {
+  width: 280px; /* Um pouco mais largo para mobile moderno */
+  background-color: #1e1e1e;
+  color: white;
+  z-index: 9999 !important; /* Valor bem alto para garantir */
+}
+
+/* === TOOLBAR === */
+.toolbar {
+  padding-inline-end: 20px;
+  background-color: #000000;
+  width: 100%;
+  height: 8rem;
+  position: sticky;
+  top: 0;
+  /* ALTERAÇÃO: Reduzi para 998 para ficar ABAIXO do overlay do sidenav (que costuma ser 1000) */
+  z-index: 998; 
+}
+
+/* === OUTROS ESTILOS === */
+
+.mat-toolbar-row, .mat-toolbar-single-row {
   padding-inline: 0px;
 }
 
-
-.toolbar {
-  padding-inline-end: 20px;
-  background-color: #000000 ;
-  width: 100%;
-  height: auto;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
 .logo-container {
-  font-family: "Aldrich", sans-serif;  display: flex;
+  font-family: "Aldrich", sans-serif;
+  display: flex;
   align-items: center;
   font-weight: bolder;
   gap: 5px;
 }
 
-.logo-container p{
+.logo-container p {
   margin-bottom: 0;
 }
 
@@ -46,12 +64,8 @@
   flex: 1 1 auto;
 }
 
-.desktop-nav {
-  display: flex;
-  gap: 20px;
-}
-
-.header_nav{
+/* Navegação Desktop */
+.header_nav {
   display: flex;
   gap: 10px;
 }
@@ -65,6 +79,8 @@
   gap: 5px;
   color: white;
   border-radius: 16px;
+  position: relative; /* Necessário para o ::before funcionar bem */
+  text-decoration: none;
 }
 
 .header_nav a::before {
@@ -85,7 +101,7 @@
   opacity: 1;
 }
 
-#icon{
+#icon {
   font-size: 20px;
   color: black;
   padding: 10px;
@@ -93,21 +109,18 @@
   border-radius: 50%;
 }
 
-.sidenav-container {
-  background-color: transparent;
+/* Estilos Internos do Sidenav */
+.botao-menu {
+  color: white !important;
+  font-family: "Lexend Exa", sans-serif;
 }
 
-/* Estilo do Menu Lateral (Sidenav) */
-mat-sidenav {
-  width: 250px;
-  background-color: #1e1e1e; /* Cor escura baseada no seu print */
+span {
   color: white;
 }
 
-  .botao-menu{
-  color: black !important;
-  font-family: "Lexend Exa", sans-serif;
-
+.mdc-list-item__primary-text {
+  color: white !important;
 }
 
 .sidenav-header {
@@ -115,25 +128,18 @@ mat-sidenav {
   justify-content: space-between;
   align-items: center;
   padding: 16px;
-  background-color: #000; /* Fundo mais escuro para o topo do menu */
+  background-color: #000;
+  color: white;
+  border-bottom: 1px solid #333;
 }
 
-/* Links do Sidenav */
 mat-nav-list a {
   color: white !important;
   font-family: "Lexend Exa", sans-serif;
 }
 
-.perfil{
-  color: white;
-  font-size: 40px;
-  width: 100%;
-  height: 100%;
-}
+/* === RESPONSIVIDADE === */
 
-/* === RESPONSIVIDADE (Media Queries) === */
-
-/* Padrão: Desktop */
 .mobile-only {
   display: none;
 }
@@ -144,19 +150,24 @@ mat-nav-list a {
   align-items: center;
 }
 
-/* Mobile (Abaixo de 768px) */
 @media (max-width: 768px) {
   .desktop-only {
-    display: none; /* Esconde menu desktop */
+    display: none;
   }
 
   .mobile-only {
-    display: block; /* Mostra botão hamburguer */
+    display: block;
   }
   
   .logo-container p {
-    font-size: 0.9rem; /* Ajuste opcional para logo não quebrar */
+    font-size: 0.9rem;
   }
 }
 
+::ng-deep .mdc-list-item__primary-text, mat-icon{
+  color: white !important;
+}
 
+:root .matMenu{
+  background-color: aquamarine !important;
+}

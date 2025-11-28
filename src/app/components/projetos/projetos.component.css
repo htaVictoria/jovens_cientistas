@@ -1,20 +1,17 @@
-/* --- ESTRUTURA GERAL DA PÁGINA --- */
 .pagina-projetos {
   min-height: 100vh;
-  background-color: var(--surface-ground); /* Cor de fundo cinza claro padrão */
+  background-color: var(--surface-ground); 
   display: flex;
   flex-direction: column;
 }
 
-/* --- SEÇÃO DE DESTAQUE (CABEÇALHO) --- */
 .secao-destaque {
-  background-color: var(--surface-card); /* Fundo branco */
+  background-color: var(--surface-card); 
   border-bottom: 1px solid var(--surface-border);
   padding: 3rem 1rem;
   text-align: center;
 }
 
-/* Responsividade: Mais espaço em telas maiores */
 @media (min-width: 768px) {
   .secao-destaque {
       padding: 4rem 2rem;
@@ -28,7 +25,7 @@
 .titulo-principal {
   font-size: 2rem;
   font-weight: 700;
-  color: var(--surface-900); /* Preto suave */
+  color: var(--surface-900);
   margin: 0 0 1rem 0;
 }
 
@@ -39,29 +36,21 @@
 }
 
 .texto-destaque {
-  color: var(--primary-color); /* Usa a cor principal do seu tema (azul/verde/etc) */
+  color: var(--primary-color);
 }
 
 .subtitulo {
   font-size: 1.1rem;
-  color: var(--surface-600); /* Cinza escuro */
+  color: var(--surface-600); 
   line-height: 1.5;
   max-width: 800px;
-  margin: 0 auto; /* Centraliza o texto */
+  margin: 0 auto;
 }
 
-/* --- BARRA DE BUSCA --- */
-.container-busca {
-  display: flex;
-  justify-content: center;
-  margin-top: 2rem;
-}
-
-/* Wrapper para colocar o ícone dentro do input */
 .icone-input-wrapper {
   position: relative;
   width: 100%;
-  max-width: 500px; /* Largura máxima da barra de busca */
+  max-width: 500px;
 }
 
 .icone-input-wrapper i {
@@ -75,19 +64,18 @@
 
 .input-busca {
   width: 100%;
-  padding-left: 2.5rem; /* Espaço para o ícone não ficar em cima do texto */
+  padding-left: 2.5rem;
   padding-top: 1rem;
   padding-bottom: 1rem;
-  border-radius: 50px; /* Deixa a barra redondinha e moderna */
+  border-radius: 50px;
 }
 
-/* --- ÁREA DE CONTEÚDO --- */
 .secao-conteudo {
   padding: 3rem 1rem;
-  flex: 1; /* Ocupa o resto da tela */
+  flex: 1; 
 }
 
 .limite-largura {
-  max-width: 1280px; /* Limita a largura em monitores gigantes */
-  margin: 0 auto;    /* Centraliza o bloco de cards */
+  max-width: 1280px;
+  margin: 0 auto;  
 }

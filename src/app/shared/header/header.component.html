@@ -1,6 +1,13 @@
 <mat-sidenav-container class="sidenav-container" [hasBackdrop]="true">
   
-  <mat-sidenav #sidenav mode="over" position="end" fixedInViewport="true">
+  <mat-sidenav #sidenav 
+               mode="over" 
+               position="end" 
+               fixedInViewport="true"
+               [fixedTopGap]="0"
+               [fixedBottomGap]="0"
+               class="app-sidenav">
+               
     <div class="sidenav-header">
       <h3>Menu</h3>
       <button mat-icon-button (click)="sidenav.close()">
@@ -8,7 +15,7 @@
       </button>
     </div>
 
-    <mat-nav-list>
+    <mat-nav-list class="nav-texto">
       <a mat-list-item routerLink="/" (click)="sidenav.close()">Home</a>
       <a mat-list-item routerLink="/quem-somos" (click)="sidenav.close()">Quem Somos</a>
       <a mat-list-item routerLink="/projetos" (click)="sidenav.close()">Projetos</a>
@@ -21,8 +28,7 @@
           <span matListItemTitle>Minha Conta</span>
         </a>
         <a mat-list-item routerLink="/diario-de-bordo" (click)="sidenav.close()">
-          <mat-icon matListItemIcon></mat-icon>
-          <span matListItemTitle>Diário de Bordo</span>
+          <mat-icon matListItemIcon>book</mat-icon> <span matListItemTitle>Diário de Bordo</span>
         </a>
         <a mat-list-item (click)="logout(); sidenav.close()">
           <mat-icon matListItemIcon>logout</mat-icon>
@@ -37,7 +43,7 @@
     </mat-nav-list>
   </mat-sidenav>
 
-  <mat-sidenav-content>
+  <mat-sidenav-content style="overflow: visible;">
     <mat-toolbar color="primary" class="toolbar">
       
       <div class="logo-container">

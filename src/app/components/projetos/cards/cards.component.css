@@ -1,4 +1,3 @@
-/* --- LAYOUT DA PÁGINA --- */
 .container-pagina {
   padding: 2rem;
   max-width: 1200px;
@@ -22,31 +21,28 @@
   font-size: 1.1rem;
 }
 
-/* --- GRID (GRADE) RESPONSIVA --- */
 .grade-projetos {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Cria colunas automáticas */
-  gap: 2rem; /* Espaço entre os cards */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+  gap: 2rem;
 }
 
-/* --- ESTILO DO CARD --- */
 .cartao-projeto {
-  background: var(--surface-card);
+  background: gray;
   border: 1px solid var(--surface-border);
   border-radius: 12px;
-  overflow: hidden; /* Para a imagem não sair das bordas arredondadas */
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  height: 100%; /* Garante que todos tenham mesma altura na linha */
+  height: 100%;
 }
 
 .cartao-projeto:hover {
-  transform: translateY(-5px); /* Efeito de levitar */
+  transform: translateY(-5px);
   box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
-/* --- ÁREA DA IMAGEM --- */
 .area-imagem {
   position: relative;
   height: 200px;
@@ -59,7 +55,6 @@
   object-fit: cover;
 }
 
-/* Posiciona a tag em cima da imagem */
 :host ::ng-deep .tag-categoria {
   position: absolute;
   top: 10px;
@@ -67,12 +62,12 @@
   box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
-/* --- CONTEÚDO --- */
+
 .conteudo-cartao {
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
-  flex-grow: 1; /* Ocupa o espaço restante vertical */
+  flex-grow: 1;
 }
 
 .cabecalho-cartao {
@@ -100,14 +95,12 @@
   font-size: 0.95rem;
   margin-bottom: 1.5rem;
   
-  /* Limita a 3 linhas com reticências (...) */
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
 
-/* --- TAGS (CHIPS) --- */
 .area-tags {
   display: flex;
   flex-wrap: wrap;
@@ -123,16 +116,15 @@
 .divisor {
   height: 1px;
   background-color: var(--surface-border);
-  margin: auto 0 1rem 0; /* "auto" empurra o divisor para baixo se sobrar espaço */
+  margin: auto 0 1rem 0;
   width: 100%;
 }
 
-/* --- RODAPÉ DO CARD --- */
 .rodape-cartao {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: auto; /* Garante que fique no fundo do card */
+  margin-top: auto; 
 }
 
 .membros-equipe {

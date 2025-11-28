@@ -35,6 +35,10 @@ img{
   background-color: var(--surface-section);
 }
 
+#section1{
+  color: black;
+}
+
 /* Ajuste de padding para telas maiores */
 @media (min-width: 768px) {
   .secao-boas-vindas {
@@ -135,6 +139,19 @@ img{
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
+#card1{
+background-color: #0011d0;
+}
+#card2{
+background-color: #d6007d;
+}
+#card3{
+background-color: #ecd500;
+}
+
+
+
+
 .titulo-card {
   color: var(--surface-900);
   font-size: 1.25rem;
@@ -181,9 +198,16 @@ img{
   font-weight: 600;
 }
 
+section{
+  height: 100dvh;
+}
 
 
+.cards-section{
+  background-color: #04d459;
+  padding: 2rem;
 
+}
 
 /* --- Seção Geral --- */
 .secao-destaques {
@@ -241,7 +265,17 @@ img{
 .descricao {
   min-height: 40px;
   color: var(--surface-600);
+<<<<<<< HEAD
   margin-bottom: 1rem;
+=======
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0 0 1.5rem 0;
+  /* Limita a 3 linhas de texto com reticências... */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+>>>>>>> 79d34730753e0d997c990df789d123852eca6d85
 }
 
 .rodape {

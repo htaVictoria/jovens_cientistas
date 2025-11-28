@@ -61,7 +61,7 @@ export class ProjetosService {
     },
     {
       id: 5,
-      title: 'Braço Mecânico',
+      title: 'projeto',
       description: 'Protótipo de braço robótico controlado por Arduino.',
       image: 'https://images.unsplash.com/photo-1581092160566-3896412f4643?w=400&h=300&fit=crop',
       category: 'Engenharia',

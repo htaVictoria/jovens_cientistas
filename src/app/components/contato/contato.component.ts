@@ -36,15 +36,6 @@ export class ContatoComponent {
 
   area!: Areas[];
   areasInteresse!: Areas[];
-
-  constructor() {
-    this.area = [
-      { nome: 'Matemática' },
-      { nome: 'Ciências da Natureza' },
-      { nome: 'Ciências Humanas' },
-      { nome: 'Robótica' }
-    ];
-  }
   
 
   checked: boolean = false
@@ -64,9 +55,10 @@ export class ContatoComponent {
 
   // Opções para o multiselect (Exemplo)
   areasOptions = [
-    { nome: 'Ciência da Computação', code: 'CC' },
-    { nome: 'Biologia', code: 'BIO' },
-    { nome: 'Física', code: 'FIS' }
+    { nome: 'Matemática', code: 'CC' },
+    { nome: 'Ciências da Natureza', code: 'BIO' },
+    { nome: 'Ciências Humanas', code: 'FIS' },
+    { nome: 'Robótica', code: 'ROB' }
   ];
 
   onSubmit() {

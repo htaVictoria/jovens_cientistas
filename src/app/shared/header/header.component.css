@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Aldrich&family=Oswald:wght@200..700&display=swap');
 @import "primeicons/primeicons.css";
-
+@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap');
 *{
   color: white ;
 }
@@ -27,7 +27,8 @@
 }
 
 .logo-container {
-  font-family: "Aldrich", sans-serif;  display: flex;
+  font-family: "Aldrich", sans-serif;
+  display: flex;
   align-items: center;
   font-weight: bolder;
   gap: 5px;

@@ -22,9 +22,9 @@
       
       <mat-divider></mat-divider>
 
-      @if (user()) {
+      @if (authService.currentUser()) {
         <a mat-list-item routerLink="/perfil" (click)="sidenav.close()">
-          <mat-icon matListItemIcon>person</mat-icon>
+          <mat-icon  matListItemIcon>person</mat-icon>
           <span matListItemTitle>Minha Conta</span>
         </a>
         <a mat-list-item routerLink="/diario-de-bordo" (click)="sidenav.close()">
@@ -36,8 +36,7 @@
         </a>
       } @else {
         <a mat-list-item routerLink="/login" (click)="sidenav.close()">
-          <mat-icon matListItemIcon>login</mat-icon>
-          <span matListItemTitle>Entrar / Cadastrar</span>
+          <span matListItemTitle>Entrar /Cadastrar</span>
         </a>
       }
     </mat-nav-list>
@@ -58,17 +57,36 @@
         <a mat-button routerLink="/quem-somos">Quem Somos</a>
         <a mat-button routerLink="/projetos">Projetos</a>
     
-        @if (user()) {
+        @if (authService.currentUser()) {
           <button id="botao-icon" mat-button [matMenuTriggerFor]="menuProfile">
             <i class="pi pi-user" id="icon"></i>
           </button>
-          <mat-menu #menuProfile="matMenu">
-            <button class="botao-menu" mat-menu-item routerLink="/perfil">Minha Conta</button>
-            <button class="botao-menu" mat-menu-item routerLink="/diario-de-bordo">Diário de Bordo</button>
-            <button class="botao-menu" mat-menu-item (click)="logout()">Sair</button>
+          <mat-menu  #menuProfile="matMenu" class="menu-customizado">
+            <div class="menu-group">
+              <button mat-menu-item routerLink="/perfil">
+                <mat-icon>person_outline</mat-icon>
+                <span>Minha Conta</span>
+              </button>
+              
+              <button mat-menu-item routerLink="/diario-de-bordo">
+                <mat-icon>book</mat-icon>
+                <span>Diário de Bordo</span>
+              </button>
+            </div>
+
+            <div class="menu-separator"></div>
+
+            <div class="menu-group">
+              <button mat-menu-item (click)="logout()" class="item-sair">
+                <mat-icon>logout</mat-icon>
+                <span>Sair</span>
+              </button>
+            </div>
           </mat-menu>
-        } @else {
-          <a mat-button routerLink="/login" class="btn-login">Entrar</a>
+        }
+        
+        @if (!authService.currentUser()) {
+          <a mat-button routerLink="/login" class="btn-login" style="background-color: rgb(255, 255, 255); color: black; border-radius: 16px;">Entrar</a>
         }
       </nav>
     
@@ -80,3 +98,4 @@
   </mat-sidenav-content>
 
 </mat-sidenav-container>
+

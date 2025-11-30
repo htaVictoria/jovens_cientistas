@@ -1,17 +1,50 @@
 
 <app-image-slider></app-image-slider>
 
+
+
+@if (authService.currentUser()) {
+
+<div class="container-painel">
+    
+    <div class="cartao-boas-vindas">
+        <h1 class="titulo-saudacao">
+            Olá, {{ authService.currentUser().nome }}
+        </h1>
+    </div>
+
+    <h2 class="titulo-secao">O que vamos descobrir hoje?</h2>
+
+    <div class="grade-acoes">
+        
+        <div class="cartao-acao" routerLink="/diario-de-bordo">
+            <i class="pi pi-book icone-acao"></i>
+            <h3 class="titulo-acao">Acessar Diário de Bordo</h3>
+            <p class="descricao-acao">Ver suas anotações e criar novos registros</p>
+        </div>
+        
+        <div class="cartao-acao" routerLink="/projetos">
+            <i class="pi pi-search icone-acao"></i>
+            <h3 class="titulo-acao">Explorar Projetos</h3>
+            <p class="descricao-acao">Inspire-se com o trabalho dos colegas</p>
+        </div>
+
+    </div>
+
+</div>
+  }
+   @if (!authService.currentUser()){
+
+
 <section id="section1" class="secao-boas-vindas">
     <div class="cabecalho-intro">
         <div class="subtitulo-destaque">
-            Clube de Ciências
         </div>
         <h2 class="titulo-principal">
-            Onde a Curiosidade vira Descoberta
+            Bem-vindo ao Jovens Cientistas!
         </h2>
         <p class="texto-descricao">
-            Somos uma comunidade de estudantes dedicados a entender o mundo através da ciência, 
-            tecnologia e inovação.
+            O clube de ciências do Colégio Estadual de Tempo Integral José Dias de Sales. Um espaço dedicado a transformar curiosidade em grandes descobertas.
         </p>
     </div>
 
@@ -19,7 +52,8 @@
         
         <div id="card1" class="card-pilar">
             <div class="container-icone tema-azul">
-                <i class="pi pi-flask"></i>
+                <i class="material-icons">biotech</i>
+
             </div>
             <h3 class="titulo-card">Experimentos</h3>
             <p class="texto-card">
@@ -29,7 +63,7 @@
 
         <div id="card2" class="card-pilar">
             <div class="container-icone tema-laranja">
-                <i class="pi pi-bolt"></i>
+                <i class="material-icons">rocket_launch</i>
             </div>
             <h3 class="titulo-card">Projetos</h3>
             <p class="texto-card">
@@ -39,7 +73,7 @@
 
         <div id="card3" class="card-pilar">
             <div class="container-icone tema-verde">
-                <i class="pi pi-users"></i>
+                <i class="material-icons">groups</i>
             </div>
             <h3 class="titulo-card">Comunidade</h3>
             <p class="texto-card">
@@ -55,16 +89,20 @@
             iconPos="right"
             routerLink="/quem-somos" 
             styleClass="botao-arredondado">
+            
         </p-button>
     </div>
 
 </section>
-
+  }
 
 <section class="cards-section">
   
     <div class="text-center mb-5">
-      <h2 class="text-3xl font-bold text-900 mb-2">Projetos em Destaque</h2>
+      <h2>Projetos em Destaque</h2>
+      <p class="texto-descricao">
+        Conheça os experimentos, pesquisas e inovações desenvolvidos pelos membros do Clube de Ciências.
+      </p>
     </div>
   
     <p-carousel 
@@ -73,7 +111,8 @@
     [numScroll]="1"
     [circular]="true"
     [responsiveOptions]="responsiveOptions"
-    autoplayInterval="5000">
+    autoplayInterval="5000"
+    ngSkipHydration>
   
     <ng-template let-projeto pTemplate="item">
       
@@ -102,8 +141,7 @@
           <span class="data">{{ projeto.date }}</span>
   
           <div class="botoes">
-            <p-button icon="pi pi-search" severity="secondary" [rounded]="true"></p-button>
-            <p-button icon="pi pi-arrow-right" [rounded]="true"></p-button>
+            <p-button  icon="pi pi-arrow-right" [rounded]="true"></p-button>
           </div>
         </div>
   
@@ -113,3 +151,4 @@
   
   </p-carousel>
   </section>
+

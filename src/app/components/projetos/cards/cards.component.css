@@ -28,7 +28,7 @@
 }
 
 .cartao-projeto {
-  background: gray;
+  background: rgb(255, 255, 255);
   border: 1px solid var(--surface-border);
   border-radius: 12px;
   overflow: hidden;
@@ -64,7 +64,6 @@
 
 
 .conteudo-cartao {
-  padding: 1.5rem;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
@@ -72,6 +71,10 @@
 
 .cabecalho-cartao {
   margin-bottom: 1rem;
+  background-color: rgb(0, 0, 0);
+  color: white;
+  padding: 6px;
+  border-end-end-radius: 18px;
 }
 
 .titulo-projeto {
@@ -94,9 +97,8 @@
   line-height: 1.5;
   font-size: 0.95rem;
   margin-bottom: 1.5rem;
-  
+  padding-inline: 1rem;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -106,6 +108,8 @@
   flex-wrap: wrap;
   gap: 0.5rem;
   margin-bottom: 1rem;
+    padding-inline: 1rem;
+
 }
 
 :host ::ng-deep .chip-estilizado {
@@ -125,6 +129,8 @@
   justify-content: space-between;
   align-items: center;
   margin-top: auto; 
+    padding-inline: 1rem;
+
 }
 
 .membros-equipe {

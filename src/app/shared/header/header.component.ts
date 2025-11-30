@@ -8,6 +8,7 @@ import { MatMenuModule } from '@angular/material/menu'; // <--- Importante
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common'; // Para pipes comuns se precisar
 import { AuthService } from '../../services/auth.service';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 
 @Component({
@@ -21,16 +22,14 @@ import { AuthService } from '../../services/auth.service';
     MatButtonModule, 
     MatSidenavModule, 
     MatListModule,
-    MatMenuModule // <--- Adicione aqui
+    MatMenuModule, ScrollingModule
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
-  authService = inject(AuthService);
+  public authService = inject(AuthService);
   
-  // Acessamos o sinal diretamente no HTML, mas podemos criar um helper se quiser
-  user = this.authService.currentUser;
 
   logout() {
     this.authService.logout();

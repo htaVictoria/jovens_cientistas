@@ -12,6 +12,7 @@ import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { AvatarModule } from 'primeng/avatar';
 import { AuthService } from '../../services/auth.service';
+import { Password } from "primeng/password";
 
 
 @Component({
@@ -25,8 +26,9 @@ import { AuthService } from '../../services/auth.service';
     ButtonModule,
     FloatLabelModule,
     ToastModule,
-    AvatarModule
-  ],
+    AvatarModule,
+    Password
+],
   providers: [MessageService], // Necessário para o Toast
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
@@ -44,7 +46,7 @@ export class ProfileComponent implements OnInit {
   formularioPerfil: FormGroup = this.construtorFormulario.group({
     nome: ['', [Validators.required]],
     email: ['', [Validators.required, Validators.email]],
-    turma: ['']
+    senha: ['']
     // Adicione outros campos se necessário
   });
 
@@ -56,7 +58,7 @@ export class ProfileComponent implements OnInit {
       this.formularioPerfil.patchValue({
         nome: usuario.nome,
         email: usuario.email,
-        turma: usuario.turma
+        senha: usuario.senha
       });
     } else {
       // Se não tiver usuário (entrou pela URL direto), manda pro login

@@ -1,5 +1,5 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 // Imports do PrimeNG
@@ -28,7 +28,8 @@ import { Project } from '../cards_interface';
 
 export class CardsComponent {
 
-  projects: Project[] = [];
+  @Input() projects: Project[] = [];
+
 
   constructor(private projetosService: ProjetosService) {}
 

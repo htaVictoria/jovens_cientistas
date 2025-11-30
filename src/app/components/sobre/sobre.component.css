@@ -1,202 +1,285 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 :host {
   display: flex;
   flex-direction: column;
-  width: 100dvw;
+  width: 100%;
   min-height: 100vh; 
   color: black;
+  overflow-x: hidden;
 }
 
-section{
+section {
   display: flex;
   flex-direction: column;
-  height: 50dvh;
+  min-height: 100vh;
+  font-size: 21px;
+  color: #000000;
+  width: 100%;
+  overflow: hidden;
+}
+
+section p {
   font-family: "Rubik", sans-serif;
-  font-size: larger;
+  font-weight: 500;
+  line-height: 1.6;
 }
 
-.texto{
+.texto h3 {
+  font-weight: 500;
+  font-family: "Oswald", sans-serif;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.texto {
   display: flex;
   flex-direction: column;
+  font-family: "Rubik", sans-serif;
+  font-weight: 400;
   justify-content: center;  
   padding: 20px;
   width: 50%;
 }
 
-#s1{
+.texto h2 {
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 200;
+  letter-spacing: 0.2rem;
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 1rem;
+}
+
+/* Section 1 - Verde */
+#s1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: row;
-  background-color: #04d459;  
+  flex-direction: row-reverse;
+  background-color: #04d459;
+  padding: 2rem;
+  gap: 2rem;
+  min-height: 60vh;
 }
 
-#s1 .texto{
+#s1 .texto {
   width: 50%;
+  max-width: 600px;
 }
 
-img{
-  width: 20%;
+/* Imagens */
+img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
 }
 
-h1{
-  font-size: 50px;
+.img-section {
+  width: 30%;
+  min-width: 250px;
+  max-width: 400px;
+  height: 300px;
+  -webkit-box-shadow: 15px 13px 0px -2px #000000; 
+  box-shadow: 15px 13px 0px -2px #000000;
 }
 
-h2{
-  font-size: 30px;
-}
-
-#s2{
-  justify-content: center;
-  word-wrap: break-word;
-  align-items: center;
-  height: 100dvh;
-  gap: 20px;
-  background-color: #0434b1;
-  padding: 30px;
-}
-
-.s2_divs{
+/* Section 2 - Azul */
+#s2 {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  gap: 4rem;
+  background-color: #0434b1;
+  padding: 8rem 2rem;
+  color: rgb(0, 0, 0);
 }
 
-#s2-div2{
-  justify-content: flex-end;
+#container {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
 }
 
-#s2-div2 p{
-  text-align: justify;
+.s2_divs {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
 }
 
-#s3{
+#s2-div2 {
+  flex-direction: row-reverse;
+}
+
+#s2 .texto {
+  flex: 1;
+  width: auto;
+}
+
+#s2 .img-section {
+  flex-shrink: 0;
+}
+
+/* Section 3 - Verde */
+#s3 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   background-color: #04d459;
-  height: 100dvh;
+  min-height: 100vh;
+  padding: 3rem 2rem;
 }
 
-.cards{
+.cards {
   display: flex;
   gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 2rem;
 }
 
-.card{
+.card {
   background-color: rgb(255, 255, 255);
-  padding: 200px;
+  padding: 3rem;
   border-radius: 16px;
+  min-width: 250px;
 }
 
-/* Media Queries para Responsividade */
-
-/* Tablets e telas menores */
+/* Tablets e telas médias */
 @media screen and (max-width: 1024px) {
-  h1{
-    font-size: 40px;
+  section {
+    font-size: 18px;
   }
-  
-  h2{
-    font-size: 25px;
+
+  .img-section {
+    width: 35%;
+    height: 250px;
   }
-  
-  .card{
-    padding: 150px;
+
+  #s2 {
+    gap: 3rem;
+  }
+
+  .card {
+    padding: 2rem;
+  }
+}
+
+/* Tablets pequenos */
+@media screen and (max-width: 768px) {
+  section {
+    min-height: auto;
+    padding: 2rem 1rem;
+  }
+
+  #s1 {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem 1rem;
+  }
+
+  #s1 .texto {
+    width: 100%;
+    order: 2;
+  }
+
+  .texto {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .img-section {
+    width: 80%;
+    max-width: 350px;
+    height: 250px;
+    order: 1;
+  }
+
+  #s2 {
+    padding: 2rem 1rem;
+    gap: 3rem;
+  }
+
+  .s2_divs {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  #s2-div2 {
+    flex-direction: column;
+  }
+
+  #s2 .img-section {
+    width: 80%;
+    max-width: 350px;
+  }
+
+  #s3 {
+    padding: 2rem 1rem;
+  }
+
+  .cards {
+    flex-direction: column;
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .card {
+    padding: 2rem;
+    width: 100%;
   }
 }
 
 /* Smartphones */
-@media screen and (max-width: 768px) {
-  section{
-    height: auto;
-    min-height: 50vh;
-  }
-  
-  #s1{
-    flex-direction: column;
-    padding: 20px;
-  }
-  
-  #s1 .texto{
-    width: 100%;
-    order: 2;
-  }
-  
-  .texto{
-    width: 100%;
-    padding: 15px;
-  }
-  
-  img{
-    width: 60%;
-    max-width: 300px;
-    order: 1;
-  }
-  
-  h1{
-    font-size: 32px;
-  }
-  
-  h2{
-    font-size: 20px;
-  }
-  
-  #s2{
-    height: auto;
-    min-height: 100vh;
-    padding: 20px;
-  }
-  
-  .s2_divs{
-    flex-direction: column;
-  }
-  
-  #s3{
-    height: auto;
-    min-height: 100vh;
-    padding: 20px;
-  }
-  
-  .cards{
-    flex-direction: column;
-    width: 100%;
-  }
-  
-  .card{
-    padding: 80px 40px;
-    width: 100%;
-  }
-}
-
-/* Smartphones pequenos */
 @media screen and (max-width: 480px) {
-  h1{
-    font-size: 28px;
+  section {
+    font-size: 16px;
+    padding: 1.5rem 1rem;
   }
-  
-  h2{
-    font-size: 18px;
+
+  .texto {
+    padding: 0.5rem;
   }
-  
-  p{
-    font-size: 14px;
+
+  .texto h3 {
+    font-size: 1.5rem;
   }
-  
-  .texto{
-    padding: 10px;
+
+  .texto h2 {
+    font-size: 1.8rem;
   }
-  
-  #s2{
-    padding: 15px;
+
+  section p {
+    font-size: 0.95rem;
   }
-  
-  .card{
-    padding: 60px 30px;
+
+  #s1 {
+    padding: 1.5rem 1rem;
   }
-  
-  img{
-    width: 80%;
+
+  .img-section {
+    width: 90%;
+    max-width: 300px;
+    height: 200px;
+    box-shadow: 10px 8px 0px -2px #000000;
+  }
+
+  #s2 {
+    padding: 1.5rem 1rem;
+    gap: 2rem;
+  }
+
+  .card {
+    padding: 1.5rem;
   }
 }

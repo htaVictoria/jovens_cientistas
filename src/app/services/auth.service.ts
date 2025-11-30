@@ -1,4 +1,4 @@
-import { Injectable, signal, Inject, PLATFORM_ID } from '@angular/core';
+import { Injectable, signal, inject, PLATFORM_ID } from '@angular/core';
 import { Router } from '@angular/router';
 import { isPlatformBrowser } from '@angular/common';
 
@@ -6,38 +6,75 @@ import { isPlatformBrowser } from '@angular/common';
   providedIn: 'root'
 })
 export class AuthService {
-  // Signal para guardar o estado do usuário (null = não logado)
-  currentUser = signal<any>(null);
+  // 1. INJEÇÃO DE DEPENDÊNCIAS (Modo Moderno)
+  private router = inject(Router);
+  private platformId = inject(PLATFORM_ID);
 
-  constructor(
-    private router: Router,
-    @Inject(PLATFORM_ID) private platformId: Object
-  ) {
-    // Verifica se está no navegador antes de acessar localStorage
-    if (isPlatformBrowser(this.platformId)) {
-      const user = localStorage.getItem('user');
-      if (user) {
-        this.currentUser.set(JSON.parse(user));
-      }
-    }
+  // 2. SINAIS
+  currentUser = signal<any | null>(null);
+  
+  // Sinal para controlar o carregamento da página (Spinner)
+  isInitialized = signal(false); 
+
+  constructor() {
+    // Executa a verificação assim que o serviço é criado
+    this.checkLocalStorage();
   }
 
-  login(credentials: any) {
-    // Simulação: cria um objeto de usuário
-    const user = { nome: 'Estudante', email: credentials.email };
-
-    this.currentUser.set(user); // Atualiza o sinal
-
+  private checkLocalStorage() {
+    // Só tenta ler o localStorage se estiver no Navegador
     if (isPlatformBrowser(this.platformId)) {
-      localStorage.setItem('user', JSON.stringify(user));
+      const storedUser = localStorage.getItem('user');
+
+      if (storedUser) {
+        try {
+          const parsedUser = JSON.parse(storedUser);
+
+          // Validação extra: verifica se o objeto tem conteúdo
+          if (parsedUser && Object.keys(parsedUser).length > 0) {
+            this.currentUser.set(parsedUser);
+          } else {
+            this.currentUser.set(null);
+          }
+        } catch (e) {
+          // Se o JSON estiver quebrado, limpa o usuário
+          this.currentUser.set(null);
+        }
+      }
     }
-    
-    this.router.navigate(['/']);
+
+    // --- O SEGREDO ESTÁ AQUI ---
+    // Avisa para o HTML (home.component) que a verificação acabou.
+    // Isso faz o Spinner sumir e a página real aparecer.
+    this.isInitialized.set(true);
+  }
+
+  login(emailRecebido: string, senhaRecebida: string) {
+    // Pega o "banco de dados" simulado
+    const usuariosSalvos = JSON.parse(localStorage.getItem('bancoUsuarios') || '[]');
+
+    const usuarioEncontrado = usuariosSalvos.find((user: any) => {
+      return user.email === emailRecebido && user.senha === senhaRecebida;
+    });
+
+    if (usuarioEncontrado) {
+      this.currentUser.set(usuarioEncontrado);
+
+      if (isPlatformBrowser(this.platformId)) {
+        localStorage.setItem('user', JSON.stringify(usuarioEncontrado));
+      }
+
+      this.router.navigate(['/home']);
+      return true;
+    } else {
+      alert('Dados incorretos');
+      return false;
+    }
   }
 
   logout() {
-    this.currentUser.set(null); // Limpa o sinal
-    
+    this.currentUser.set(null);
+
     if (isPlatformBrowser(this.platformId)) {
       localStorage.removeItem('user');
     }
@@ -46,7 +83,6 @@ export class AuthService {
   }
 
   register(userData: any) {
-    // Lógica de registro...
     this.currentUser.set(userData);
 
     if (isPlatformBrowser(this.platformId)) {
@@ -58,13 +94,10 @@ export class AuthService {
 
   updateProfile(novosDados: any) {
     const usuarioAtual = this.currentUser();
-
-    // Mescla os dados antigos com os novos
     const usuarioAtualizado = { ...usuarioAtual, ...novosDados };
 
     this.currentUser.set(usuarioAtualizado);
 
-    // Salva no localStorage apenas se estiver no navegador
     if (isPlatformBrowser(this.platformId)) {
       localStorage.setItem('user', JSON.stringify(usuarioAtualizado));
     }

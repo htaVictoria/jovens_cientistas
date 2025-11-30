@@ -1,12 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgZone, OnInit } from '@angular/core';
 import { ImageSliderComponent } from "./image-slider/image-slider.component";
 import { ButtonModule } from 'primeng/button';
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { CommonModule, ViewportScroller } from '@angular/common';
+import { Router, RouterModule } from '@angular/router';
 import { Project, ProjetosService } from '../../services/projetos/projetos.service';
 import { CarouselModule } from 'primeng/carousel';
 import { TagModule } from 'primeng/tag';
 import { CardModule } from "primeng/card";
+import { AuthService } from '../../services/auth.service';
 
 
 @Component({
@@ -23,12 +24,20 @@ export class HomeComponent implements OnInit {
     // Configuração de responsividade do carrossel
     responsiveOptions: any[] | undefined;
 
-    constructor(private projetosService: ProjetosService) {}
+    constructor(private projetosService: ProjetosService, private router: Router, private viewportScroller: ViewportScroller, public authService: AuthService, private ngZone: NgZone) {}
 
     ngOnInit() {
-        // Busca os projetos do seu serviço
-        // OBS: Como seu serviço retorna o array direto (sem Promise/Observable), não precisa do .then()
         this.projetos = this.projetosService.getProjects();
+
+        this.ngZone.runOutsideAngular(() => {
+      
+      setInterval(() => {
+        
+        
+      }, 1000);
+
+    });
+  
 
         // Configura quantos cards aparecem por tamanho de tela
         this.responsiveOptions = [
@@ -68,4 +77,7 @@ export class HomeComponent implements OnInit {
                 return 'secondary'; // Cinza para o resto
         }
     }
+
+    
 }
+

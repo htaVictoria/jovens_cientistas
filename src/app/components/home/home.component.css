@@ -1,13 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
 :host {
   display: flex;
   flex-direction: column;
   min-height: 100vh; 
+  background-color: #050011 !important;
+
+
 }
 
 app-carousel{
   width: 100vw;
+}
+
+:host ::ng-deep .counter[_ngcontent-ng-c719734697] {
+  display: none;
 }
 
 img{
@@ -29,17 +37,110 @@ img{
   }
 }
 
-/* --- Layout Geral da Seção --- */
+.container-painel {
+  min-height: 100vh; 
+  padding: 2rem;
+  background-color: var(--surface-ground); 
+}
+
+.cartao-boas-vindas {
+  display: flex;
+  padding: 5rem;
+  color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05); 
+  margin-bottom: 2rem;
+  border: 1px solid var(--surface-border);
+    font-family: "Bebas Neue", sans-serif;
+    letter-spacing: 0.2rem;
+    justify-content: center;
+
+}
+
+.titulo-saudacao {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text-color);
+  margin: 0 0 0.5rem 0;
+}
+
+.texto-saudacao {
+  color: white;
+  margin: 0;
+}
+
+.titulo-secao {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: whitesmoke;
+  margin-bottom: 1.5rem;
+  margin-top: 1rem;
+    font-family: "Rubik", sans-serif
+
+}
+
+.grade-acoes {
+  display: grid;
+  grid-template-columns: 1fr; 
+  gap: 1.5rem; 
+}
+
+@media (min-width: 768px) {
+    .grade-acoes {
+        grid-template-columns: 1fr 1fr; 
+    }
+}
+
+.cartao-acao {
+    background-color: white;
+    padding: 6rem 1.5rem;
+    border-radius: 2px;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid var(--surface-border);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s;
+}
+
+.cartao-acao:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    background-color: var(--surface-hover); 
+    color: #00ff80;
+    border-color: var(--primary-color); 
+}
+
+.icone-acao {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.titulo-acao {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin: 0 0 0.5rem 0;
+}
+
+.descricao-acao {
+    color: var(--text-color-secondary);
+    margin: 0;
+    font-size: 0.95rem;
+}
+
 .secao-boas-vindas {
-  padding: 4rem 2rem; /* px-4 py-6 */
+  padding: 4rem 2rem; 
   background-color: var(--surface-section);
+  
+
 }
 
-#section1{
-  color: black;
+section {
+  min-height: auto;
+  position: relative;
 }
 
-/* Ajuste de padding para telas maiores */
 @media (min-width: 768px) {
   .secao-boas-vindas {
       padding: 4rem 3rem;
@@ -47,8 +148,9 @@ img{
 }
 
 .secao-boas-vindas {
-  padding: 4rem 2rem;
-  background-color: var(--surface-ground);
+  padding: 6rem 1.5rem 4rem 1.5rem; 
+  background-color: transparent; 
+  color: white;
 }
 
 @media (min-width: 768px) {
@@ -74,11 +176,12 @@ img{
 
 .titulo-principal {
   color: var(--surface-900);
-  font-weight: 700;
   font-size: 2rem;
   margin-top: 0;
   margin-bottom: 1rem;
-  font-family: "Rubik", sans-serif
+ font-family: "Bebas Neue", sans-serif;
+ font-weight: 200;
+ letter-spacing: 0.2rem;
 }
 
 .texto-descricao {
@@ -93,18 +196,16 @@ img{
 /* --- GRID DO LAYOUT (A parte importante) --- */
 .grade-pilares {
   display: grid;
-  font-family: "Rubik", sans-serif; /*font dos cards*/
-  grid-template-columns: 1fr; 
+  font-family: "Rubik", sans-serif;
+  grid-template-columns: 1fr; /* Mobile: 1 coluna */
   gap: 1.5rem;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-#card1{
-  background-color: #FF9E57;
+.container-icone img{
+  width: 60px;
 }
-#card2{}
-#card3{}
 
 
 
@@ -141,12 +242,17 @@ img{
 
 #card1{
 background-color: #0011d0;
+color: black;
+
 }
 #card2{
 background-color: #d6007d;
+color: black;
+
 }
 #card3{
 background-color: #ecd500;
+color: black;
 }
 
 
@@ -179,6 +285,7 @@ background-color: #ecd500;
 
 .container-icone i {
   font-size: 1.75rem;
+  
 }
 
 /* Temas */
@@ -192,10 +299,13 @@ background-color: #ecd500;
   margin-top: 3rem;
 }
 
+
+
 :host ::ng-deep .botao-arredondado {
-  border-radius: 50px;
+  border-radius: 16px;
   padding: 0.8rem 2rem;
   font-weight: 600;
+  background-color: black;
 }
 
 section{
@@ -203,9 +313,19 @@ section{
 }
 
 
-.cards-section{
-  background-color: #04d459;
-  padding: 2rem;
+:host ::ng-deep.cards-section h2{
+  color: black;
+  font-weight: 700;
+    font-family: "Rubik", sans-serif !important;
+
+}
+
+.cards-section {
+  padding: 4rem 1.5rem;
+  background-color: #00ff80; /* Fundo claro para diferenciar da seção escura */
+  color: #000000;
+  font-family: "Rubik", sans-serif !important;
+  height: auto;
 
 }
 
@@ -234,11 +354,12 @@ section{
 }
 
 .card-fixo {
-  border: 1px solid var(--surface-border);
+  border: 1px solid #ddd;
   border-radius: 12px;
   padding: 1rem;
-  background: var(--surface-card);
-  height: 420px;             /* ALTURA PADRÃO DO CARD */
+  background: white;
+  margin: 0.5rem; /* Espaço lateral entre cards do carousel */
+  height: 100%; 
   display: flex;
   flex-direction: column;
 }
@@ -265,9 +386,7 @@ section{
 .descricao {
   min-height: 40px;
   color: var(--surface-600);
-<<<<<<< HEAD
   margin-bottom: 1rem;
-=======
   font-size: 0.9rem;
   line-height: 1.5;
   margin: 0 0 1.5rem 0;
@@ -275,7 +394,6 @@ section{
   display: -webkit-box;
   -webkit-box-orient: vertical;
   overflow: hidden;
->>>>>>> 79d34730753e0d997c990df789d123852eca6d85
 }
 
 .rodape {
@@ -289,3 +407,5 @@ section{
 .p-carousel-item > div {
   height: 100% !important;
 }
+
+

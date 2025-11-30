@@ -19,6 +19,7 @@ interface Areas {
 
 
 
+
 @Component({
   selector: 'app-contato',
   imports: [MatFormFieldModule, MatSelectModule, ReactiveFormsModule, ReactiveFormsModule, ButtonModule, CardModule, InputTextModule, FloatLabel, MultiSelectModule, RouterModule, CheckboxModule,PasswordModule, CommonModule],
@@ -31,9 +32,6 @@ export class ContatoComponent {
     nome!: string;
     email!: string;
     turma: any;
-
-
-
   area!: Areas[];
   areasInteresse!: Areas[];
   
@@ -42,6 +40,8 @@ export class ContatoComponent {
 
   private fb = inject(FormBuilder);
   private authService = inject(AuthService);
+
+  constructor(private router: Router) {}
 
   registerForm: FormGroup = this.fb.group({
     nome: ['', Validators.required],
@@ -61,15 +61,34 @@ export class ContatoComponent {
     { nome: 'Robótica', code: 'ROB' }
   ];
 
-  onSubmit() {
+  
+  cadastrar() {
     if (this.registerForm.valid) {
-      this.authService.register(this.registerForm.value);
+      
+      const novoUsuario = this.registerForm.value;
+
+      const bancoDeDados = JSON.parse(localStorage.getItem('bancoUsuarios') || '[]');
+
+      const usuarioExiste = bancoDeDados.find((u: any) => u.email === novoUsuario.email);
+
+      if (usuarioExiste) {
+        alert('Este email já está cadastrado!');
+        return;
+      }
+
+      bancoDeDados.push(novoUsuario);
+
+      localStorage.setItem('bancoUsuarios', JSON.stringify(bancoDeDados));
+
+      alert('Cadastro realizado com sucesso!');
+
+      this.router.navigate(['/home']);
+
     } else {
-      // Marca todos os campos como tocados para exibir os erros na tela
+      alert('Por favor, preencha todos os campos corretamente.');
       this.registerForm.markAllAsTouched();
     }
   }
-
 
   
 }

@@ -75,7 +75,7 @@ export class DiarioDeBordoComponent implements OnInit {
   constructor(
     private confirmationService: ConfirmationService,
     private messageService: MessageService,
-    @Inject(PLATFORM_ID) private platformId: Object // Injeção do Platform ID
+    @Inject(PLATFORM_ID) private platformId: Object 
   ) { }
 
   ngOnInit() {
@@ -156,7 +156,7 @@ export class DiarioDeBordoComponent implements OnInit {
     this.messageService.add({
       severity: 'success',
       summary: 'Sucesso',
-      detail: 'Entrada salva com sucesso!'
+      detail: 'Registro salvo com sucesso!'
     });
 
     this.closeDialog();
@@ -185,7 +185,7 @@ export class DiarioDeBordoComponent implements OnInit {
     this.messageService.add({
       severity: 'success',
       summary: 'Sucesso',
-      detail: 'Entrada atualizada com sucesso!'
+      detail: 'Registro atualizado com sucesso!'
     });
 
     this.closeDialog();
@@ -193,7 +193,7 @@ export class DiarioDeBordoComponent implements OnInit {
 
   confirmDelete(id: string) {
     this.confirmationService.confirm({
-      message: 'Deseja realmente excluir esta entrada?',
+      message: 'Deseja realmente excluir?',
       header: 'Confirmação',
       icon: 'pi pi-exclamation-triangle',
       acceptLabel: 'Sim',
@@ -213,7 +213,7 @@ export class DiarioDeBordoComponent implements OnInit {
     this.messageService.add({
       severity: 'info',
       summary: 'Excluído',
-      detail: 'Entrada excluída com sucesso!'
+      detail: 'Registro excluído com sucesso!'
     });
   }
 

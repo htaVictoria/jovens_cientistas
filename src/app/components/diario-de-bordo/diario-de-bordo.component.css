@@ -1,313 +1,416 @@
-:host ::ng-deep .p-dialog .p-calendar {
-  width: 100%;
+:host #bg {
+  background: #f5f1e8;
+  min-height: 100vh;
+  padding: 1rem;
 }
 
-:host ::ng-deep .p-dialog .p-calendar .p-inputtext {
-  width: 100%;
+:host ::ng-deep #container {
+  margin-bottom: 2rem;
 }
 
-/* Mantendo seus estilos de Card que estavam bonitos */
 :host ::ng-deep .p-toolbar {
-  border-radius: 10px;
-  background: var(--surface-card);
-  padding: 0.75rem 1rem;
+  border-radius: 4px;
+  background: #000000;
+  color: #f5f1e8;
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 3px 0 #1a0f08, 0 6px 12px rgba(0,0,0,0.2);
+  border: none;
+  position: relative;
+}
+
+:host ::ng-deep .p-toolbar::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: #8b4513;
+}
+
+:host ::ng-deep .p-toolbar .text-primary {
+  color: #d4a574 !important;
+}
+
+:host ::ng-deep .p-toolbar h1 {
+  color: #f5f1e8;
+  font-weight: 600;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
 
 :host ::ng-deep .p-card {
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s ease;
+  border-radius: 2px;
+  box-shadow: 3px 3px 0 rgba(0,0,0,0.1), 6px 6px 20px rgba(0,0,0,0.08);
+  margin-bottom: 1.5rem;
+  border-left: 4px solid #d4a574;
+  background: #fffef9;
+  position: relative;
+  transition: transform 0.2s ease;
 }
 
-.entry-card:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+:host ::ng-deep .p-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 31px,
+      rgba(212, 165, 116, 0.15) 31px,
+      rgba(212, 165, 116, 0.15) 32px
+    );
+  pointer-events: none;
+  z-index: 0;
 }
 
-/* Estilos de scroll do dialog */
+:host ::ng-deep .p-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+:host ::ng-deep .p-card:hover {
+  transform: translateX(2px) translateY(-2px);
+  box-shadow: 5px 5px 0 rgba(0,0,0,0.1), 8px 8px 25px rgba(0,0,0,0.12);
+}
+
+:host ::ng-deep .p-dialog {
+  border-radius: 0;
+  box-shadow: 8px 8px 0 rgba(0,0,0,0.15), 0 0 40px rgba(0,0,0,0.2);
+  border: 2px solid #2c1810;
+}
+
+:host ::ng-deep .p-dialog .p-dialog-header {
+  padding: 1.5rem 2rem;
+  background: #000000;
+  color: #f5f1e8;
+  border-bottom: 3px solid #8b4513;
+  border-radius: 0;
+}
+
+:host ::ng-deep .p-dialog .p-dialog-header .p-dialog-title {
+  color: #f5f1e8;
+  font-weight: 600;
+  font-size: 1.4rem;
+  font-family: 'Courier New', monospace;
+}
+
+:host ::ng-deep .p-datepicker-dropdown{
+  background-color: #000000;
+  color: white;
+}
+
+:host ::ng-deep .p-dialog .p-dialog-header-icon {
+  color: #f5f1e8 !important;
+}
+
+:host ::ng-deep .p-dialog .p-dialog-header-icon:hover {
+  background: rgba(255, 255, 255, 0.15) !important;
+}
+
 :host ::ng-deep .p-dialog .p-dialog-content {
-  padding: 0 1.5rem 1.5rem 1.5rem;
+  padding: 2rem;
+  max-height: calc(90vh - 200px);
+  overflow-y: auto;
+  background: #fffef9;
+  background-image: 
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 31px,
+      rgba(212, 165, 116, 0.12) 31px,
+      rgba(212, 165, 116, 0.12) 32px
+    );
 }
 
-/* Asterisco vermelho */
-label.font-bold::after {
-  content: " *";
-  color: var(--red-500);
-  display: none; /* Escondido por padrão */
+:host ::ng-deep .p-dialog .p-dialog-footer {
+  padding: 1.25rem 2rem;
+  border-top: 2px dashed #d4a574;
+  background: #fffef9;
 }
 
-/* Mostra o asterisco apenas nos campos obrigatórios específicos */
+.field {
+  margin-bottom: 1.5rem;
+}
+
+.field label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #2c1810;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-family: 'Courier New', monospace;
+}
+
+:host ::ng-deep .p-inputtext,
+:host ::ng-deep .p-inputtextarea,
+:host ::ng-deep .p-dropdown {
+  width: 100%;
+  border-radius: 0;
+  border: none;
+  border-bottom: 2px solid #2c1810;
+  padding: 0.75rem 0.5rem;
+  font-size: 1rem;
+  background: transparent;
+  font-family: Georgia, serif;
+  transition: border-color 0.2s;
+}
+
+:host ::ng-deep .p-inputtext:focus,
+:host ::ng-deep .p-inputtextarea:focus,
+:host ::ng-deep .p-dropdown:focus {
+  border-bottom-color: #8b4513;
+  box-shadow: 0 1px 0 #8b4513;
+  outline: none;
+}
+
+:host ::ng-deep .p-inputtextarea {
+  resize: vertical;
+  min-height: 100px;
+  line-height: 32px;
+  font-family: Georgia, serif;
+}
+
+:host ::ng-deep .p-calendar {
+  width: 100%;
+}
+
+:host ::ng-deep .p-calendar .p-inputtext {
+  width: 100%;
+}
+
+:host ::ng-deep .p-button {
+  border-radius: 0;
+  padding: 0.75rem 1.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.85rem;
+  border: 2px solid currentColor;
+  box-shadow: 3px 3px 0 rgba(0,0,0,0.2);
+  transition: all 0.15s ease;
+}
+
+:host ::ng-deep .p-button:hover {
+  transform: translate(1px, 1px);
+  box-shadow: 2px 2px 0 rgba(0,0,0,0.2);
+}
+
+:host ::ng-deep .p-button:active {
+  transform: translate(3px, 3px);
+  box-shadow: 0 0 0 rgba(0,0,0,0.2);
+}
+
+:host ::ng-deep .p-button-success {
+  background: #2c5f2d;
+  border-color: #1a3a1b;
+  color: #f5f1e8;
+}
+
+:host ::ng-deep .p-button-success:hover {
+  background: #234d24;
+}
+
+:host ::ng-deep .p-button-icon-only {
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+}
+
+:host ::ng-deep .p-chip {
+  border-radius: 0;
+  padding: 0.5rem 1rem;
+  background: #000000;
+  color: #f5f1e8;
+  font-weight: 600;
+  box-shadow: 2px 2px 0 rgba(0,0,0,0.15);
+  font-family: 'Courier New', monospace;
+  font-size: 0.85rem;
+}
+
+:host ::ng-deep .p-chip .p-chip-icon {
+  margin-right: 0.5rem;
+}
+
+:host ::ng-deep .p-tag {
+  border-radius: 0;
+  padding: 0.35rem 0.75rem;
+  font-weight: 600;
+  font-size: 0.75rem;
+  border: 1px solid currentColor;
+  box-shadow: 2px 2px 0 rgba(0,0,0,0.1);
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+}
+
+:host ::ng-deep .observation-panel {
+  border: 2px dashed #8b4513;
+  border-radius: 0;
+  background: #fff9e6;
+  position: relative;
+}
+
+:host ::ng-deep .observation-panel::after {
+  content: '📌';
+  position: absolute;
+  top: -8px;
+  right: 20px;
+  font-size: 1.5rem;
+  transform: rotate(25deg);
+}
+
+:host ::ng-deep .observation-panel .p-panel-header {
+  background: transparent;
+  border-bottom: 1px dashed #8b4513;
+  padding: 1rem 1.25rem;
+  font-weight: 700;
+  color: #2c1810;
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+
+:host ::ng-deep .observation-panel .p-panel-content {
+  padding: 1.25rem;
+  background: transparent;
+  font-family: Georgia, serif;
+}
+
+:host ::ng-deep .p-textarea-resizable{
+  border: 1px solid #000000;
+  width: 100%;
+}
+
+:host ::ng-deep .p-divider {
+  margin: 1.5rem 0;
+  border-top: 2px dashed #d4a574;
+}
+
+:host ::ng-deep .entry-card h4 {
+  color: #2c1810;
+  font-weight: 700;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+:host ::ng-deep .entry-card h4 i {
+  color: #8b4513;
+  margin-right: 0.75rem;
+}
+
+:host ::ng-deep .entry-card h2 {
+  font-family: Georgia, serif;
+  color: #2c1810;
+}
+
+:host ::ng-deep .entry-card p {
+  font-family: Georgia, serif;
+  color: #3d2817;
+  line-height: 32px;
+}
+
+:host ::ng-deep .p-input-icon-left i {
+  color: #8b4513;
+  left: 0.5rem;
+}
+
+:host ::ng-deep .p-input-icon-left .p-inputtext {
+  padding-left: 2.5rem;
+}
+
+/* Scrollbar estilo vintage */
+:host ::ng-deep .p-dialog-content::-webkit-scrollbar {
+  width: 10px;
+}
+
+:host ::ng-deep .p-dialog-content::-webkit-scrollbar-track {
+  background: #f5f1e8;
+}
+
+:host ::ng-deep .p-dialog-content::-webkit-scrollbar-thumb {
+  background: #000000;
+  border: 2px solid #f5f1e8;
+}
+
+:host ::ng-deep .p-dialog-content::-webkit-scrollbar-thumb:hover {
+  background: #6d3710;
+}
+
+:host ::ng-deep .text-center i.pi-book {
+  color: #d4a574;
+}
+
 label[for="title"]::after,
 label[for="content"]::after {
-  display: inline;
+  content: " *";
+  color: #8b4513;
+  font-weight: 900;
 }
-  .p-card {
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s ease;
+
+@media (max-width: 767px) {
+  :host #bg {
+    padding: 0.5rem;
   }
 
-  .entry-card:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  :host ::ng-deep .p-toolbar {
+    padding: 1rem;
   }
 
-  /* Ajustes do Dialog */
-  .p-dialog {
-    border-radius: 12px;
-    overflow: hidden;
+  :host ::ng-deep .p-dialog {
+    width: 95vw !important;
+    margin: 0.5rem;
   }
 
-  .p-dialog .p-dialog-header {
-    padding: 1.5rem;
-    border-bottom: 1px solid var(--surface-border);
+  :host ::ng-deep .p-dialog .p-dialog-header {
+    padding: 1rem;
   }
 
-  .p-dialog .p-dialog-content {
-    padding: 1.5rem;
-    max-height: calc(90vh - 200px);
-    overflow-y: auto;
+  :host ::ng-deep .p-dialog .p-dialog-content {
+    padding: 1rem;
   }
 
-  .p-dialog .p-dialog-footer {
-    padding: 1rem 1.5rem;
-    border-top: 1px solid var(--surface-border);
+  :host ::ng-deep .p-dialog .p-dialog-footer {
+    padding: 1rem;
+    flex-direction: column-reverse;
   }
 
-  /* Campos do formulário */
+  :host ::ng-deep .p-button {
+    width: 100%;
+  }
+
   .field {
     margin-bottom: 1.25rem;
-    display: flex;
-    flex-direction: column;
   }
+}
 
-  .field:last-child {
-    margin-bottom: 0;
+/* Responsive Tablet */
+@media (min-width: 768px) and (max-width: 1023px) {
+  :host ::ng-deep .p-dialog {
+    width: 85vw !important;
+    max-width: 700px;
   }
+}
 
-  .field label {
-    display: block;
-    margin-bottom: 0.5rem;
-    color: var(--text-color);
-    font-weight: 600;
-    flex-shrink: 0;
+@media (min-width: 1024px) {
+  :host ::ng-deep .p-dialog {
+    width: 600px !important;
   }
+}
 
-  /* Ajustes para inputs e textareas */
-  .p-inputtext,
-  .p-inputtextarea {
-    width: 100%;
-    font-size: 0.95rem;
-    padding: 0.75rem;
-    border-radius: 6px;
-  }
-
-  .p-inputtextarea {
-    resize: vertical;
-    min-height: 80px;
-    font-family: inherit;
-    line-height: 1.5;
-  }
-
-  /* Calendar */
-  .p-calendar {
-    width: 100%;
-  }
-
-  .p-calendar .p-inputtext {
-    width: 100%;
-  }
-
-  /* Dropdown */
-  .p-dropdown {
-    width: 100%;
-  }
-
-  /* Botões do footer do dialog */
-  .p-dialog-footer {
-    display: flex;
-    justify-content: flex-end;
-    gap: 0.75rem;
-  }
-
-  .p-dialog-footer .p-button {
-    min-width: 100px;
-  }
-
-  /* Ajustes responsivos para mobile */
-  @media (max-width: 767px) {
-    .p-dialog {
-      width: 95vw !important;
-      margin: 1rem;
-    }
-
-    .p-dialog .p-dialog-header {
-      padding: 1rem;
-    }
-
-    .p-dialog .p-dialog-content {
-      padding: 1rem;
-      max-height: calc(90vh - 180px);
-    }
-
-    .p-dialog .p-dialog-footer {
-      padding: 0.75rem 1rem;
-      flex-direction: column-reverse;
-    }
-
-    .p-dialog-footer .p-button {
-      width: 100%;
-      min-width: unset;
-    }
-
-    .p-inputtext,
-    .p-inputtextarea {
-      font-size: 0.875rem;
-      padding: 0.625rem;
-    }
-
-    .field {
-      margin-bottom: 1rem;
-    }
-
-    .field label {
-      font-size: 0.875rem;
-    }
-
-    .p-button-sm {
-      padding: 0.5rem;
-    }
-
-    .p-button-sm .p-button-icon {
-      font-size: 1rem;
-    }
-
-    .p-toolbar {
-      padding: 0.5rem 0.75rem;
-    }
-
-    .p-card .p-card-body {
-      padding: 1rem;
-    }
-
-    .p-card .p-card-content {
-      padding: 0;
-    }
-  }
-
-  /* Ajustes para tablets */
-  @media (min-width: 768px) and (max-width: 1023px) {
-    .p-dialog {
-      width: 85vw !important;
-      max-width: 700px;
-    }
-
-    .p-inputtext,
-    .p-inputtextarea {
-      font-size: 0.9375rem;
-    }
-  }
-
-  /* Ajustes para desktop */
-  @media (min-width: 1024px) {
-    .p-dialog {
-      width: 70vw !important;
-      max-width: 800px;
-    }
-
-    .p-inputtext,
-    .p-inputtextarea {
-      font-size: 1rem;
-    }
-  }
-
-  /* Panel de observações */
-  .observation-panel {
-    margin-top: 0.5rem;
-  }
-
-  .observation-panel .p-panel-header {
-    font-size: 0.875rem;
-  }
-
-  @media (min-width: 768px) {
-    .observation-panel .p-panel-header {
-      font-size: 1rem;
-    }
-  }
-
-  /* Touch targets maiores para mobile */
-  @media (max-width: 767px) {
-    .p-button {
-      min-height: 2.75rem;
-      min-width: 2.75rem;
-    }
-
-    .p-inputtext,
-    .p-inputtextarea,
-    .p-dropdown {
-      min-height: 2.75rem;
-    }
-  }
-
-  /* Ajustes para chips e tags */
-  .p-chip,
-  .p-tag {
-    font-size: 0.75rem;
-  }
-
-  @media (min-width: 768px) {
-    .p-chip,
-    .p-tag {
-      font-size: 0.875rem;
-    }
-  }
-
-  /* Scroll suave no dialog */
-  .p-dialog-content {
-    scroll-behavior: smooth;
-  }
-
-  .p-dialog-content::-webkit-scrollbar {
-    width: 6px;
-  }
-
-  .p-dialog-content::-webkit-scrollbar-track {
-    background: var(--surface-ground);
-    border-radius: 3px;
-  }
-
-  .p-dialog-content::-webkit-scrollbar-thumb {
-    background: var(--surface-400);
-    border-radius: 3px;
-  }
-
-  .p-dialog-content::-webkit-scrollbar-thumb:hover {
-    background: var(--surface-500);
-  }
-
-  /* Melhorar espaçamento entre campos */
-  .dialog-responsive .p-dialog-content > div {
-    padding: 0.25rem 0.5rem;
-  }
-
-  /* Placeholder mais visível */
-  .p-inputtext::placeholder,
-  .p-inputtextarea::placeholder {
-    color: var(--text-color-secondary);
-    opacity: 0.6;
-  }
-
-  /* Focus states mais visíveis */
-  .p-inputtext:focus,
-  .p-inputtextarea:focus,
-  .p-calendar:focus-within .p-inputtext,
-  .p-dropdown:focus-within {
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 0.2rem rgba(var(--primary-color-rgb), 0.2);
-  }
-
-  /* Asterisco vermelho para campos obrigatórios */
-  .field label:has(+ input:required)::after,
-  .field label:has(+ textarea:required)::after {
-    content: ' *';
-    color: var(--red-500);
-  }
+:host ::ng-deep .p-inputtext::placeholder,
+:host ::ng-deep .p-inputtextarea::placeholder {
+  color: #a08968;
+  font-style: italic;
+  opacity: 0.7;
+  font-family: Georgia, serif;
+}

@@ -2,26 +2,29 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh; 
+  background-color: #050011;
 }
 
-section{
+:host ::ng-deep section{
   display: flex;
-  height: 100dvh;
+padding: 1rem;
   justify-content: center;
   align-items: center;
 }
 
 .card{
   -webkit-box-shadow: 0px 9px 15px 6px #BDBDBD; 
-box-shadow: 0px 9px 15px 6px #BDBDBD;
+  box-shadow: 0px 9px 15px 6px #BDBDBD;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 800px;
-  height: 680px;
+  height: 700px;
   border: 1px solid rgba(128, 128, 128, 0.255);
   border-radius: 8px;
+  background-color: rgb(0, 0, 0);
+  padding-bottom: 20px !important;
 }
 
 .titulo-form{
@@ -29,15 +32,20 @@ box-shadow: 0px 9px 15px 6px #BDBDBD;
   font-size: 30px;
   font-weight: 900;
   padding-top: 3rem;
+  color: white;
 
 }
 
-form{
+:ng-deep form{
   display: flex;
   flex-direction: column;
-  padding: 3rem;
+  padding-inline: 3rem;
   padding-top: 0;
   gap: 20px;
+}
+
+:ng-deep .gap-3{
+  gap: 0 !important;
 }
 
 .form-container{
@@ -49,12 +57,36 @@ form{
 #areas-interesse{
   display: flex;
   flex-direction: column;
+
+}
+
+#areas-interesse label{
+    font-family: "Lexend Exa", sans-serif;
+    color: white !important;
+
 }
 
 #areas-interesse label{
   font-weight: 400;
 }
 
+.p-error{
+  color: rgba(255, 0, 0, 0.807);
+}
+
+
+input, p-password, p-multiSelect, p-floatLabel, input{
+  background-color: #03010e !important;
+}
+
+:host ::ng-deep .p-multiselect-header, .p-multiselect-list, .p-ripple{
+    background-color: #03010e !important;
+
+}
+
+:host ::ng-deep a{
+    color: #00ff808a;
+  }
 
 
 
@@ -67,3 +99,31 @@ form{
     min-width: none;
   }
 }
+:host ::ng-deep .p-multiselect-list{
+    background-color: #03010e !important;
+    color: white;
+
+}
+:host ::ng-deep .p-multiselect-header input{
+      background-color: #03010e !important;
+
+}
+:host ::ng-deep .p-multiselect-list span{
+  color: white;
+}
+
+:host ::ng-deep .p-multiselect-list .p-multiselect-option.p-multiselect-option-selected.p-focus,.p-multiselect-option.p-multiselect-option-selected, .p-multiselect-option.p-multiselect-option-selected  {
+  background-color: #03010e;
+}
+:host ::ng-deep  .p-multiselect-option:not(.p-multiselect-option-selected):not(.p-disabled).p-focus{
+    background-color: #03010e;
+}
+:host ::ng-deep .p-multiselect-option.p-multiselect-option-selected{
+    background-color: #03010e;
+  }
+:host ::ng-deep .p-password:has(.p-password-toggle-mask-icon) .p-password-input{
+      background-color: #03010e;
+}
+ :host ::ng-deep label.text-sm, span {
+  color: rgb(163, 163, 163);
+ }

@@ -1,21 +1,44 @@
 <div class="pagina-projetos">
-  
-  <div class="secao-destaque">
-    
-    <div class="cabecalho-titulo">
-      <h1 class="titulo-principal">
-        Nossos <span class="texto-destaque">Projetos</span>
-      </h1>
-      <p class="subtitulo">
-        Conheça os experimentos, pesquisas e inovações desenvolvidos pelos membros do Clube de Ciências.
-      </p>
+
+  <!-- ADICIONE ESTA SEÇÃO DE BUSCA E FILTROS AQUI -->
+  <div class="secao-filtros">
+    <!-- Campo de Busca -->
+    <div class="campo-busca">
+      <svg xmlns="http://www.w3.org/2000/svg" 
+           class="icone-busca" 
+           viewBox="0 0 24 24" 
+           fill="none" 
+           stroke="currentColor" 
+           stroke-width="2">
+        <circle cx="11" cy="11" r="8"/>
+        <path d="m21 21-4.35-4.35"/>
+      </svg>
+      <input
+        type="text"
+        placeholder="Buscar projetos por nome ou descrição..."
+        [(ngModel)]="searchTerm"
+        class="input-busca"
+      />
     </div>
 
+    <!-- Botões de Categorias -->
+    <div class="categorias-filtro">
+      @for (category of categories; track category.id) {
+        <button
+          (click)="selectCategory(category.id)"
+          [class.categoria-ativa]="selectedCategory() === category.id"
+          class="botao-categoria"
+        >
+          {{ category.name }}
+        </button>
+      }
+    </div>
   </div>
+  <!-- FIM DA SEÇÃO DE BUSCA E FILTROS -->
 
   <div class="secao-conteudo">
     <div class="limite-largura">
-        <app-cards></app-cards>
+      <app-cards [projects]="filteredProjects()"></app-cards>
     </div>
   </div>
 

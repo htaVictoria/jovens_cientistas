@@ -17,14 +17,13 @@ export interface Project {
 })
 export class ProjetosService {
 
-  // Seus dados vieram para cá
   private projects: Project[] = [
     {
       id: 1,
       title: 'Sistema de Monitoramento',
       description: 'Sistema com sensores de temperatura e umidade conectados à nuvem.',
       image: 'https://images.unsplash.com/photo-1518314916381-77a37c2a49ae?w=400&h=300&fit=crop',
-      category: 'Robótica',
+      category: 'biologia',
       date: 'Outubro 2024',
       members: ['Membro 1', 'Membro 2'],
       tags: ['teste', 'iot']

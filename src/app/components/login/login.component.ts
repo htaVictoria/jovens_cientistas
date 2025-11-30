@@ -24,9 +24,14 @@ export class LoginComponent {
   });
 
   onLogin() {
-    if (this.loginForm.valid) {
-      this.authService.login(this.loginForm.value);
-    }
+  if (this.loginForm.valid) {
+    // 1. Pega os valores separadamente de dentro do formulário
+    const emailDigitado = this.loginForm.value.email;
+    const senhaDigitada = this.loginForm.value.senha;
+
+    // 2. Envia eles separados, na ordem que o serviço pede
+    this.authService.login(emailDigitado, senhaDigitada);
   }
+}
 
 }

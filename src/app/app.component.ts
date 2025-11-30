@@ -24,6 +24,9 @@ export class AppComponent {
   title = 'jovens_cientistas';
   showHeaderFooter: boolean = true;
 
+
+  
+
   constructor(
     iconRegistry: MatIconRegistry, 
     sanitizer: DomSanitizer,
@@ -42,5 +45,11 @@ export class AppComponent {
       
       this.showHeaderFooter = !rotasSemLayout.includes(event.url);
     });
+
+    
   }
+
+  
+
+  
 }

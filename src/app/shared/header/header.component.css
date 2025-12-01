@@ -230,3 +230,8 @@ mat-nav-list a {
  .btn-entrar {
   background-color: white;
 }
+
+:host ::ng-deep  .btn-login{
+  font-weight: 900;
+  margin-left: 20px;
+}

@@ -2,15 +2,13 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-// Imports do PrimeNG
 import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
 import { TagModule } from 'primeng/tag';
 import { ChipModule } from 'primeng/chip';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { ProjetosService } from '../../../services/projetos/projetos.service';
-import { Project } from '../cards_interface';
+import { Project, ProjetosService } from '../../../services/projetos/projetos.service';
 
 
 
@@ -37,14 +35,14 @@ export class CardsComponent {
     this.projects = this.projetosService.getProjects();
   }
 
-  // Função para cor da categoria (igual fizemos na Home)
+
   getSeverity(categoria: string): "success" | "info" | "warning" | "danger" | "secondary" | "contrast" | undefined {
     switch (categoria.toLowerCase()) {
         case 'robótica': return 'success';
-        case 'engenharia': return 'warning';
-        case 'química': return 'danger';
-        case 'biologia': return 'info';
-        case 'física': return 'contrast';
+        case 'Ciências da Natureza': return 'warning';
+        case 'Ciências Humanas': return 'danger';
+        case 'Matemática': return 'info';
+        case 'Tecnologia': return 'contrast';
         default: return 'secondary';
     }
   }

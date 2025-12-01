@@ -18,6 +18,11 @@ app-carousel{
   display: none;
 }
 
+:host ::ng-deep .image-container[_ngcontent-ng-c719734697]{
+  height: 100%;
+}
+
+
 img{
   width: 100vw;
   height: 400px;
@@ -51,9 +56,9 @@ img{
   box-shadow: 0 4px 10px rgba(0,0,0,0.05); 
   margin-bottom: 2rem;
   border: 1px solid var(--surface-border);
-    font-family: "Bebas Neue", sans-serif;
-    letter-spacing: 0.2rem;
-    justify-content: center;
+  font-family: "Bebas Neue", sans-serif;
+  letter-spacing: 0.2rem;
+  justify-content: center;
 
 }
 
@@ -75,7 +80,7 @@ img{
   color: whitesmoke;
   margin-bottom: 1.5rem;
   margin-top: 1rem;
-    font-family: "Rubik", sans-serif
+  font-family: "Rubik", sans-serif
 
 }
 
@@ -132,7 +137,6 @@ img{
 .secao-boas-vindas {
   padding: 4rem 2rem; 
   background-color: var(--surface-section);
-  
 
 }
 
@@ -176,7 +180,7 @@ section {
 
 .titulo-principal {
   color: var(--surface-900);
-  font-size: 2rem;
+  font-size: 5rem;
   margin-top: 0;
   margin-bottom: 1rem;
  font-family: "Bebas Neue", sans-serif;
@@ -186,20 +190,18 @@ section {
 
 .texto-descricao {
   color: var(--surface-600);
-  font-size: 1.1rem;
+  font-size: 1.9rem;
   line-height: 1.5;
-  max-width: 40rem;
+  max-width: 80rem;
   margin: 0 auto;
   font-family: "Rubik", sans-serif
 }
 
-/* --- GRID DO LAYOUT (A parte importante) --- */
 .grade-pilares {
   display: grid;
   font-family: "Rubik", sans-serif;
-  grid-template-columns: 1fr; /* Mobile: 1 coluna */
+  grid-template-columns: 1fr; 
   gap: 1.5rem;
-  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -216,20 +218,15 @@ section {
   }
 }
 
-/* --- Estilo dos Cards --- */
 .card-pilar {
   background-color: var(--surface-card); 
-  padding: 2rem;
+  padding: 9rem;
   border-radius: 12px;
   text-align: center;
-  
-  /* Sombra suave para parecer um card flutuando */
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   border: 1px solid var(--surface-border);
-  
-  /* Animação */
   transition: all 0.3s ease;
-  height: 100%; /* Garante que todos tenham a mesma altura */
+  height: 100%; 
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -260,7 +257,7 @@ color: black;
 
 .titulo-card {
   color: var(--surface-900);
-  font-size: 1.25rem;
+  font-size: 2.25rem;
   font-weight: 600;
   margin: 1rem 0 0.5rem 0;
 }
@@ -269,10 +266,9 @@ color: black;
   color: var(--surface-600);
   line-height: 1.6;
   margin: 0;
-  font-size: 0.95rem;
+  font-size: 1.95rem;
 }
 
-/* --- Ícones --- */
 .container-icone {
   width: 4rem;
   height: 4rem;
@@ -284,16 +280,14 @@ color: black;
 }
 
 .container-icone i {
-  font-size: 1.75rem;
+  font-size: 3.75rem;
   
 }
 
-/* Temas */
 .tema-azul { background-color: var(--blue-50); color: var(--blue-600); }
 .tema-laranja { background-color: var(--orange-50); color: var(--orange-600); }
 .tema-verde { background-color: var(--green-50); color: var(--green-600); }
 
-/* --- Botão --- */
 .container-botao {
   text-align: center;
   margin-top: 3rem;
@@ -312,6 +306,13 @@ section{
   height: 100dvh;
 }
 
+:host ::ng-deep .secao-boas-vindas[_ngcontent-ng-c4206291029]{
+  display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 
 :host ::ng-deep.cards-section h2{
   color: black;
@@ -322,17 +323,16 @@ section{
 
 .cards-section {
   padding: 4rem 1.5rem;
-  background-color: #00ff80; /* Fundo claro para diferenciar da seção escura */
+  background-color: #00ff80; 
   color: #000000;
   font-family: "Rubik", sans-serif !important;
   height: auto;
 
 }
 
-/* --- Seção Geral --- */
 .secao-destaques {
   padding: 4rem 2rem;
-  background-color: var(--surface-card); /* Fundo branco/neutro */
+  background-color: var(--surface-card);
 }
 
 .cabecalho-secao {
@@ -358,7 +358,7 @@ section{
   border-radius: 12px;
   padding: 1rem;
   background: white;
-  margin: 0.5rem; /* Espaço lateral entre cards do carousel */
+  margin: 0.5rem;
   height: 100%; 
   display: flex;
   flex-direction: column;
@@ -390,7 +390,6 @@ section{
   font-size: 0.9rem;
   line-height: 1.5;
   margin: 0 0 1.5rem 0;
-  /* Limita a 3 linhas de texto com reticências... */
   display: -webkit-box;
   -webkit-box-orient: vertical;
   overflow: hidden;

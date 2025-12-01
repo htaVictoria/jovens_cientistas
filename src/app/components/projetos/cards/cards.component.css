@@ -71,8 +71,8 @@
 
 .cabecalho-cartao {
   margin-bottom: 1rem;
-  background-color: rgb(0, 0, 0);
-  color: white;
+  background-color: rgb(35, 169, 111);
+  color: rgb(0, 0, 0);
   padding: 6px;
   border-end-end-radius: 18px;
 }

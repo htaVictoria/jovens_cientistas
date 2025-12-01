@@ -21,8 +21,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 480px !important;
-  height: 680px;
+  width: 60rem !important;
+  min-height: 70rem;
   border: 1px solid rgba(128, 128, 128, 0.255);
   border-radius: 8px;
 }
@@ -42,7 +42,7 @@ form{
   padding: 3rem;
   padding-top: 0;
   gap: 20px;
-  width: 100%;
+  width: 80%;
 }
 
 .form-container{

@@ -116,7 +116,7 @@
   
     <ng-template let-projeto pTemplate="item">
       
-      <div class="card-fixo">  <!-- wrapper fixo -->
+      <div class="card-fixo"> 
   
         <div class="img-wrapper">
           <img 
@@ -137,11 +137,9 @@
           {{ projeto.description | slice:0:60 }}...
         </p>
   
-        <div class="rodape">
-          <span class="data">{{ projeto.date }}</span>
-  
+        <div class="rodape">  
           <div class="botoes">
-            <p-button  icon="pi pi-arrow-right" [rounded]="true"></p-button>
+            <p-button  icon="pi pi-arrow-right" [rounded]="true" routerLink="/projetos"></p-button>
           </div>
         </div>
   

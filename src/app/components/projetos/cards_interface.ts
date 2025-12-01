@@ -1,10 +1,11 @@
 export interface Project {
-  id: number;
-  title: string;
-  description: string;
-  image: string;
-  category: string;
-  date: string;
-  members: string[];
-  tags: string[];
+    id: number;
+    title: string;
+    description: string;
+    image: string;
+    category: string[];
+    date: string;
+    members: string[];
+    tags: string[];
+  
 }

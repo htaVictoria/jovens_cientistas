@@ -3,11 +3,11 @@ import { ImageSliderComponent } from "./image-slider/image-slider.component";
 import { ButtonModule } from 'primeng/button';
 import { CommonModule, ViewportScroller } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
-import { Project, ProjetosService } from '../../services/projetos/projetos.service';
 import { CarouselModule } from 'primeng/carousel';
 import { TagModule } from 'primeng/tag';
 import { CardModule } from "primeng/card";
 import { AuthService } from '../../services/auth.service';
+import { Project, ProjetosService } from '../../services/projetos/projetos.service';
 
 
 @Component({
@@ -21,7 +21,6 @@ export class HomeComponent implements OnInit {
 
   projetos: Project[] = [];
 
-    // Configuração de responsividade do carrossel
     responsiveOptions: any[] | undefined;
 
     constructor(private projetosService: ProjetosService, private router: Router, private viewportScroller: ViewportScroller, public authService: AuthService, private ngZone: NgZone) {}
@@ -39,43 +38,45 @@ export class HomeComponent implements OnInit {
     });
   
 
-        // Configura quantos cards aparecem por tamanho de tela
         this.responsiveOptions = [
             {
-                breakpoint: '1199px', // Desktop
+                breakpoint: '1199px', 
                 numVisible: 3,
                 numScroll: 1
             },
             {
-                breakpoint: '991px', // Tablet
+                breakpoint: '991px',
                 numVisible: 2,
                 numScroll: 1
             },
             {
-                breakpoint: '767px', // Celular
+                breakpoint: '767px', 
                 numVisible: 1,
                 numScroll: 1
             }
         ];
     }
 
-    // Função que define a cor da etiqueta baseada na Categoria do projeto
-    getSeverity(categoria: string): "success" | "info" | "warning" | "danger" | "secondary" | "contrast" | undefined {
-        // Normaliza para minúsculo para evitar erros de digitação (ex: "Robótica" ou "robótica")
-        switch (categoria.toLowerCase()) {
-            case 'robótica':
+    getSeverity(categoria: string[]): "success" | "info" | "warning" | "danger" | "secondary" | "contrast" | undefined {
+
+        for(const cat of categoria){
+        switch (cat.toLowerCase()) {
+            case 'Ciências da Natureza':
                 return 'success'; // Verde
-            case 'engenharia':
+            case 'Tecnologia':
                 return 'warning'; // Laranja
-            case 'química':
+            case 'Ciências Humanas':
                 return 'danger';  // Vermelho
-            case 'biologia':
+            case 'Matemática':
                 return 'info';    // Azul
             case 'física':
                 return 'contrast'; // Preto/Escuro
             default:
                 return 'secondary'; // Cinza para o resto
         }
+        }
+        return undefined;
+
     }
 
     

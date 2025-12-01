@@ -18,6 +18,7 @@
 section {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   min-height: 100vh;
   font-size: 21px;
   color: #000000;
@@ -55,7 +56,6 @@ section p {
   margin-bottom: 1rem;
 }
 
-/* Section 1 - Verde */
 #s1 {
   display: flex;
   justify-content: center;
@@ -72,7 +72,6 @@ section p {
   max-width: 600px;
 }
 
-/* Imagens */
 img {
   max-width: 100%;
   height: auto;
@@ -80,15 +79,11 @@ img {
 }
 
 .img-section {
-  width: 30%;
   min-width: 250px;
-  max-width: 400px;
-  height: 300px;
   -webkit-box-shadow: 15px 13px 0px -2px #000000; 
   box-shadow: 15px 13px 0px -2px #000000;
 }
 
-/* Section 2 - Azul */
 #s2 {
   display: flex;
   justify-content: center;
@@ -102,7 +97,7 @@ img {
 
 #container {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1600px;
   display: flex;
   flex-direction: column;
   gap: 6rem;
@@ -129,7 +124,6 @@ img {
   flex-shrink: 0;
 }
 
-/* Section 3 - Verde */
 #s3 {
   display: flex;
   flex-direction: column;
@@ -155,7 +149,6 @@ img {
   min-width: 250px;
 }
 
-/* Tablets e telas médias */
 @media screen and (max-width: 1024px) {
   section {
     font-size: 18px;
@@ -175,7 +168,6 @@ img {
   }
 }
 
-/* Tablets pequenos */
 @media screen and (max-width: 768px) {
   section {
     min-height: auto;
@@ -240,7 +232,6 @@ img {
   }
 }
 
-/* Smartphones */
 @media screen and (max-width: 480px) {
   section {
     font-size: 16px;

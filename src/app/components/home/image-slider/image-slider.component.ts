@@ -22,11 +22,11 @@ export class ImageSliderComponent implements OnInit, OnDestroy {
   images: ImageSlide[] = [
     {
       url: 'assets/slides/img4_desktop.png',
-      urlMobile: 'assets/slides/img1_mobile.png',
+      urlMobile: 'assets/slides/img2_mobile.png',
     },
     {
-      url: 'assets/slides/img3_desktop.png',
-      urlMobile: 'assets/slides/img2_mobile.png',
+      url: 'assets/slides/img5_desktop.png',
+      urlMobile: 'assets/slides/img5_mobile.png',
     },
 
   ];

@@ -18,26 +18,24 @@ export class ProjetosComponent implements OnInit {
   projects: Project[] = [];
   
   selectedCategory = signal<string>('todos');
-  searchTerm = signal<string>(''); // ← MUDANÇA AQUI
+  searchTerm = signal<string>('');
 
   categories = [
     { id: 'todos', name: 'Todos' },
-    { id: 'biologia', name: 'Biologia' },
-    { id: 'fisica', name: 'Física' },
-    { id: 'quimica', name: 'Química' },
-    { id: 'astronomia', name: 'Astronomia' }
+    { id: 'Ciências da Natureza', name: 'Ciências da Natureza' },
+    { id: 'Ciências Humanas', name: 'Ciências Humanas' },
+    { id: 'Matemática', name: 'Matemática' },
+    { id: 'Tecnologia', name: 'Tecnologia' }
   ];
 
   filteredProjects = computed(() => {
-    const search = this.searchTerm().toLowerCase().trim(); // ← MUDANÇA AQUI
+    const search = this.searchTerm().toLowerCase().trim(); 
     const category = this.selectedCategory();
 
     return this.projects.filter(project => {
-      // Filtro de categoria
       const matchesCategory = category === 'todos' || 
-                              project.category === category;
+                              project.category.includes(category);
       
-      // Filtro de busca
       const matchesSearch = search === '' || // Se vazio, mostra todos
                            project.title?.toLowerCase().includes(search) ||
                            project.description?.toLowerCase().includes(search);
@@ -50,17 +48,17 @@ export class ProjetosComponent implements OnInit {
 
   ngOnInit() {
     this.projects = this.projetosService.getProjects();
-    console.log('Projetos carregados:', this.projects); // ← DEBUG
+    console.log('Projetos carregados:', this.projects); 
   }
 
   selectCategory(categoryId: string) {
     this.selectedCategory.set(categoryId);
-    console.log('Categoria selecionada:', categoryId); // ← DEBUG
+    console.log('Categoria selecionada:', categoryId); 
   }
 
   onSearchChange(value: string) {
     this.searchTerm.set(value);
-    console.log('Buscando por:', value); // ← DEBUG
-    console.log('Projetos filtrados:', this.filteredProjects()); // ← DEBUG
+    console.log('Buscando por:', value); 
+    console.log('Projetos filtrados:', this.filteredProjects());
   }
 }

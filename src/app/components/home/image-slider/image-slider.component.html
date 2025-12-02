@@ -1,7 +1,6 @@
 <div class="slider-container">
   <div class="slider-wrapper">
     <div class="slider-content" (mouseenter)="pauseAutoplay()" (mouseleave)="resumeAutoplay()">
-      <!-- Container da Imagem -->
       <div class="image-container">
         <div class="slides-wrapper" [style.transform]="'translateX(' + slideTransform + '%)'">
           <div *ngFor="let image of images; let i = index" class="slide">
@@ -20,7 +19,6 @@
         </div>
       </div>
 
-      <!-- Botão Anterior -->
       <button
         (click)="goToPrevious()"
         class="nav-button nav-button-left"
@@ -31,7 +29,6 @@
         </svg>
       </button>
 
-      <!-- Botão Próximo -->
       <button
         (click)="goToNext()"
         class="nav-button nav-button-right"
@@ -42,7 +39,6 @@
         </svg>
       </button>
 
-      <!-- Indicadores -->
       <div class="indicators">
         <button
           *ngFor="let image of images; let i = index"
@@ -54,7 +50,6 @@
       </div>
     </div>
 
-    <!-- Contador -->
     <div class="counter">
       {{ currentIndex + 1 }} / {{ images.length }}
     </div>

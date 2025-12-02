@@ -55,7 +55,6 @@
   
   <div *ngIf="projetoSelecionado" class="detalhes-projeto">
     <div class="secao-detalhes">
-      <h3><i class="pi pi-bookmark"></i> Título do Projeto</h3>
       <p class="titulo-completo">{{ projetoSelecionado.title }}</p>
     </div>
     
@@ -70,13 +69,12 @@
         <p-chip 
           *ngFor="let cat of projetoSelecionado.category" 
           [label]="cat"
-          icon="pi pi-tag">
+          >
         </p-chip>
       </div>
     </div>
     
     <div class="secao-detalhes" *ngIf="projetoSelecionado.tags && projetoSelecionado.tags.length > 0">
-      <h3><i class="pi pi-code"></i> Tecnologias</h3>
       <div class="area-tags">
         <p-chip 
           *ngFor="let tag of projetoSelecionado.tags" 
@@ -89,11 +87,17 @@
       <h3><i class="pi pi-users"></i> Equipe do Projeto</h3>
       <ul class="lista-membros">
         <li *ngFor="let member of projetoSelecionado.members">
-          <i class="pi pi-user"></i>
           <span>{{ member }}</span>
         </li>
       </ul>
     </div>
+
+    <div class="secao-detalhes">
+      <h3 class="orientacao-titulo"> <i class="pi pi-user"></i> Orientação</h3>
+      <p id="detalhes-orientacao">{{projetoSelecionado.orientador}}</p>
+    </div>
+
+
 
   </div>
   

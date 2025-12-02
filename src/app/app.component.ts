@@ -25,6 +25,13 @@ export class AppComponent {
   showHeaderFooter: boolean = true;
 
 
+    ngOnInit(): void {
+    this.router.events.pipe(
+      filter((event): event is NavigationEnd => event instanceof NavigationEnd)
+    ).subscribe(() => {
+      window.scrollTo(0, 0);
+    });
+  }
   
 
   constructor(
@@ -36,11 +43,9 @@ export class AppComponent {
     iconRegistry.addSvgIcon('facebook', sanitizer.bypassSecurityTrustResourceUrl('assets/icons/facebook.svg'));
     iconRegistry.addSvgIcon('whatsapp', sanitizer.bypassSecurityTrustResourceUrl('assets/icons/whatsapp.svg'));
 
-    // Escuta mudanças de rota
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd)
     ).subscribe((event: NavigationEnd) => {
-      // Lista de rotas onde NÃO deve aparecer header/footer
       const rotasSemLayout = ['/politica-privacidade', '/termos-de-uso', '/login'];
       
       this.showHeaderFooter = !rotasSemLayout.includes(event.url);

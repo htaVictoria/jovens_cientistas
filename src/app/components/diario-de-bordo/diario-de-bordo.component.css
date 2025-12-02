@@ -185,13 +185,13 @@
 }
 
 :host ::ng-deep .p-button {
-  border-radius: 0;
+  border-radius: 0 !important;
   padding: 0.75rem 1.75rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
   font-size: 0.85rem;
-  border: 2px solid currentColor;
+  border: 2px solid currentColor !important;
   box-shadow: 3px 3px 0 rgba(0,0,0,0.2);
   transition: all 0.15s ease;
 }
@@ -207,13 +207,13 @@
 }
 
 :host ::ng-deep .p-button-success {
-  background: #2c5f2d;
+  background: #39a03a;
   border-color: #1a3a1b;
   color: #f5f1e8;
 }
 
 :host ::ng-deep .p-button-success:hover {
-  background: #234d24;
+  background: #3d8c3d;
 }
 
 :host ::ng-deep .p-button-icon-only {
@@ -393,7 +393,6 @@ label[for="content"]::after {
   }
 }
 
-/* Responsive Tablet */
 @media (min-width: 768px) and (max-width: 1023px) {
   :host ::ng-deep .p-dialog {
     width: 85vw !important;

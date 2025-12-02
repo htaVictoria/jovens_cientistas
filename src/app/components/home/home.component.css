@@ -630,6 +630,10 @@ section{
   box-sizing: border-box;
 }
 
+.card-fixo :hover{
+  cursor: pointer;
+}
+
 .img-wrapper {
   height: 180px;
   position: relative;

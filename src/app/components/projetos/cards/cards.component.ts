@@ -46,7 +46,7 @@ export class CardsComponent {
         case 'Ciências da Natureza': return 'warning';
         case 'Ciências Humanas': return 'danger';
         case 'Matemática': return 'info';
-        case 'Tecnologia': return 'contrast';
+        case 'Engenharia': return 'contrast';
         default: return 'secondary';
     }
   }

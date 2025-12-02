@@ -16,6 +16,8 @@ import { FormsModule } from '@angular/forms';
 
 export class ProjetosComponent implements OnInit {
   projects: Project[] = [];
+
+  
   
   selectedCategory = signal<string>('todos');
   searchTerm = signal<string>('');
@@ -25,7 +27,7 @@ export class ProjetosComponent implements OnInit {
     { id: 'Ciências da Natureza', name: 'Ciências da Natureza' },
     { id: 'Ciências Humanas', name: 'Ciências Humanas' },
     { id: 'Matemática', name: 'Matemática' },
-    { id: 'Tecnologia', name: 'Tecnologia' }
+    { id: 'Engenharia', name: 'Engenharia' }
   ];
 
   filteredProjects = computed(() => {
@@ -49,6 +51,11 @@ export class ProjetosComponent implements OnInit {
   ngOnInit() {
     this.projects = this.projetosService.getProjects();
     console.log('Projetos carregados:', this.projects); 
+
+    window.scrollTo(0, 0);
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+  
   }
 
   selectCategory(categoryId: string) {

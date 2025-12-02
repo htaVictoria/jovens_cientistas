@@ -62,22 +62,24 @@ export class HomeComponent implements OnInit {
         for(const cat of categoria){
         switch (cat.toLowerCase()) {
             case 'Ciências da Natureza':
-                return 'success'; // Verde
+                return 'success'; 
             case 'Tecnologia':
-                return 'warning'; // Laranja
+                return 'warning'; 
             case 'Ciências Humanas':
-                return 'danger';  // Vermelho
+                return 'danger'; 
             case 'Matemática':
-                return 'info';    // Azul
+                return 'info';    
             case 'física':
-                return 'contrast'; // Preto/Escuro
+                return 'contrast';
             default:
-                return 'secondary'; // Cinza para o resto
+                return 'secondary'; 
         }
         }
         return undefined;
 
     }
+
+
 
     
 }

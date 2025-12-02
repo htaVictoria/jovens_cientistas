@@ -4,7 +4,6 @@
     <p-toast></p-toast>
     <p-confirmDialog></p-confirmDialog>
 
-    <!-- Header Toolbar -->
     <p-toolbar class="mb-3 md:mb-4">
       <ng-template pTemplate="left">
         <div class="flex align-items-center gap-2 md:gap-3">
@@ -27,7 +26,6 @@
       </ng-template>
     </p-toolbar>
 
-    <!-- Search and Filter Card -->
     <p-card id="container"  class="mb-3 md:mb-4">
       <div  class="grid gap-2">
         <div class="col-12 lg:col-8">
@@ -56,7 +54,6 @@
       </div>
     </p-card>
 
-    <!-- Add/Edit Dialog -->
     <p-dialog 
   [header]="editingId() ? 'Editar' : 'Novo Registro'"
   [(visible)]="displayDialog"
@@ -165,7 +162,6 @@
 
 </p-dialog>
 
-    <!-- Entries List -->
     <div class="grid">
       @if (getFilteredEntries().length === 0) {
         <div class="col-12">

@@ -80,10 +80,14 @@ export class DiarioDeBordoComponent implements OnInit {
 
   ngOnInit() {
     this.loadEntries();
+    
+    window.scrollTo(0, 0);
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+  
   }
 
   loadEntries() {
-    // Proteção SSR: Só executa no navegador
     if (isPlatformBrowser(this.platformId)) {
       const stored = localStorage.getItem('science_logbook_entries');
       if (stored) {
@@ -100,7 +104,6 @@ export class DiarioDeBordoComponent implements OnInit {
   }
 
   saveToLocalStorage(entries: LogEntry[]) {
-    // Proteção SSR
     if (isPlatformBrowser(this.platformId)) {
       const entriesToSave = entries.map(entry => ({
         ...entry,
@@ -193,7 +196,7 @@ export class DiarioDeBordoComponent implements OnInit {
 
   confirmDelete(id: string) {
     this.confirmationService.confirm({
-      message: 'Deseja realmente excluir?',
+      message: 'Deseja excluir esta página?',
       header: 'Confirmação',
       icon: 'pi pi-exclamation-triangle',
       acceptLabel: 'Sim',
@@ -271,19 +274,20 @@ export class DiarioDeBordoComponent implements OnInit {
     return severities[index % severities.length];
   }
 
-  // --- CORREÇÕES CRÍTICAS PARA SSR ---
   
   isLargeScreen(): boolean {
     if (isPlatformBrowser(this.platformId)) {
       return window.innerWidth >= 768;
     }
-    return true; // Retorno padrão para servidor (assume desktop)
+    return true; 
   }
 
   isMobile(): boolean {
     if (isPlatformBrowser(this.platformId)) {
       return window.innerWidth < 768;
     }
-    return false; // Retorno padrão para servidor (assume não mobile)
+    return false; 
   }
+
+  
 }

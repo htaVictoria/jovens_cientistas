@@ -17,10 +17,6 @@
           </span>
         </div>
 
-        <p class="descricao-projeto">
-          {{ project.description }}
-        </p>
-
         <div class="area-tags" *ngIf="project.tags && project.tags.length > 0">
           <p-chip *ngFor="let tag of project.tags" [label]="tag" styleClass="chip-estilizado"></p-chip>
         </div>
@@ -31,21 +27,83 @@
           <div class="membros-equipe">
             <i class="pi pi-users icone-equipe"></i>
             <span class="texto-membros" title="{{ project.members.join(', ') }}">
-              {{ project.members.length }} Membro(s) na equipe
+              {{ project.members.length }} Membros na equipe
             </span>
           </div>
 
-          <p-button 
-            label="Detalhes" 
-            icon="pi pi-arrow-right" 
-            iconPos="right" 
-            [text]="true" 
-            size="small">
-          </p-button>
+          <button 
+  class="btn-teste" 
+  (click)="abrirDetalhes(project)"
+  style="padding: 8px 16px; background: #007bff00; color: rgb(0, 0, 0); border: none; border-radius: 4px; cursor: pointer; font-weight: 600;">
+  Ver Detalhes ⇨
+</button>
         </div>
 
       </div>
     </div>
 
   </div>
-</div>
+  </div>
+
+<p-dialog 
+  [(visible)]="mostrarDialog" 
+  [modal]="true"
+  [style]="{width: '700px', maxWidth: '90vw'}"
+  [draggable]="false"
+  [resizable]="false"
+  closable="false">
+  
+  <div *ngIf="projetoSelecionado" class="detalhes-projeto">
+    <div class="secao-detalhes">
+      <h3><i class="pi pi-bookmark"></i> Título do Projeto</h3>
+      <p class="titulo-completo">{{ projetoSelecionado.title }}</p>
+    </div>
+    
+    <div class="secao-detalhes" *ngIf="projetoSelecionado.description">
+      <h3><i class="pi pi-align-left"></i> Descrição</h3>
+      <p class="descricao-completa">{{ projetoSelecionado.description }}</p>
+    </div>
+
+    <div class="secao-detalhes" *ngIf="projetoSelecionado.category && projetoSelecionado.category.length > 0">
+      <h3><i class="pi pi-tag"></i> Categorias</h3>
+      <div class="area-tags">
+        <p-chip 
+          *ngFor="let cat of projetoSelecionado.category" 
+          [label]="cat"
+          icon="pi pi-tag">
+        </p-chip>
+      </div>
+    </div>
+    
+    <div class="secao-detalhes" *ngIf="projetoSelecionado.tags && projetoSelecionado.tags.length > 0">
+      <h3><i class="pi pi-code"></i> Tecnologias</h3>
+      <div class="area-tags">
+        <p-chip 
+          *ngFor="let tag of projetoSelecionado.tags" 
+          [label]="tag">
+        </p-chip>
+      </div>
+    </div>
+    
+    <div class="secao-detalhes" *ngIf="projetoSelecionado.members && projetoSelecionado.members.length > 0 && projetoSelecionado.members[0] !== ''">
+      <h3><i class="pi pi-users"></i> Equipe do Projeto</h3>
+      <ul class="lista-membros">
+        <li *ngFor="let member of projetoSelecionado.members">
+          <i class="pi pi-user"></i>
+          <span>{{ member }}</span>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+  
+  <ng-template pTemplate="footer">
+    <p-button 
+      label="Fechar" 
+      icon="pi pi-times" 
+      (onClick)="mostrarDialog = false"
+      styleClass="p-button-text">
+    </p-button>
+  </ng-template>
+  
+</p-dialog>

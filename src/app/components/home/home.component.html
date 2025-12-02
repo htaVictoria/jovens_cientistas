@@ -6,15 +6,11 @@
 @if (authService.currentUser()) {
 
 <div class="container-painel">
-    
     <div class="cartao-boas-vindas">
         <h1 class="titulo-saudacao">
             Olá, {{ authService.currentUser().nome }}
         </h1>
     </div>
-
-    <h2 class="titulo-secao">O que vamos descobrir hoje?</h2>
-
     <div class="grade-acoes">
         
         <div class="cartao-acao" routerLink="/diario-de-bordo">
@@ -34,9 +30,31 @@
 </div>
   }
    @if (!authService.currentUser()){
-
-
 <section id="section1" class="secao-boas-vindas">
+
+              <div class="particles-container">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+
     <div class="cabecalho-intro">
         <div class="subtitulo-destaque">
         </div>
@@ -89,15 +107,13 @@
             iconPos="right"
             routerLink="/quem-somos" 
             styleClass="botao-arredondado">
-            
         </p-button>
     </div>
-
 </section>
   }
 
+ @if (!authService.currentUser()){
 <section class="cards-section">
-  
     <div class="text-center mb-5">
       <h2>Projetos em Destaque</h2>
       <p class="texto-descricao">
@@ -149,4 +165,48 @@
   
   </p-carousel>
   </section>
+
+ <section class="cta-section">
+        
+        <div class="particles-container">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+
+          <div class="cadastro">
+            <h2 class="title">Faça Parte Dessa Jornada!</h2>
+            
+            <p class="description">
+                Junte-se ao Clube de Ciências. Experimentos, pesquisas e muito aprendizado te esperam!
+            </p>
+
+            <div class="benefits">
+                <span class="benefit">Encontros semanais</span>
+                <span class="benefit">Certificado</span>
+                <span class="benefit">Comunidade ativa</span>
+            </div>
+
+            <a routerLink="/cadastro" class="cta-button">Quero Participar</a>
+
+        </div>
+    </section>
+  }
 

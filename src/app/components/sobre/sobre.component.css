@@ -50,6 +50,7 @@ section p {
 
 .texto h2 {
   font-family: "Bebas Neue", sans-serif;
+  border-bottom: 2px solid rgb(0, 0, 0);
   font-weight: 200;
   letter-spacing: 0.2rem;
   font-size: clamp(2rem, 5vw, 3rem);
@@ -93,6 +94,12 @@ img {
   background-color: #0434b1;
   padding: 8rem 2rem;
   color: rgb(0, 0, 0);
+}
+
+#s2 .texto{
+    border: 2px solid white;
+  background-color: white;
+  border-radius: 8px;
 }
 
 #container {

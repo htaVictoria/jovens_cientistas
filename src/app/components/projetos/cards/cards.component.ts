@@ -9,6 +9,7 @@ import { ChipModule } from 'primeng/chip';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { Project, ProjetosService } from '../../../services/projetos/projetos.service';
+import { DialogModule } from 'primeng/dialog';
 
 
 
@@ -18,7 +19,7 @@ import { Project, ProjetosService } from '../../../services/projetos/projetos.se
   selector: 'app-cards',
   imports: [CommonModule, CardModule, ButtonModule, TagModule, ChipModule,
     MatButtonModule,
-    MatIconModule],
+    MatIconModule, DialogModule],
   templateUrl: './cards.component.html',
   styleUrl: './cards.component.css'
 })
@@ -27,6 +28,9 @@ import { Project, ProjetosService } from '../../../services/projetos/projetos.se
 export class CardsComponent {
 
   @Input() projects: Project[] = [];
+
+    mostrarDialog: boolean = false;
+    projetoSelecionado: Project | null = null;
 
 
   constructor(private projetosService: ProjetosService) {}
@@ -45,5 +49,13 @@ export class CardsComponent {
         case 'Tecnologia': return 'contrast';
         default: return 'secondary';
     }
+  }
+
+
+    abrirDetalhes(project: Project) {
+    console.log('Projeto clicado:', project);
+    this.projetoSelecionado = project;
+    this.mostrarDialog = true;
+    console.log('Projeto selecionado:', this.projetoSelecionado);
   }
 }

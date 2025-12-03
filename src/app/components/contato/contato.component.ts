@@ -39,7 +39,7 @@ export class ContatoComponent {
   checked: boolean = false
 
   private fb = inject(FormBuilder);
-  private authService = inject(AuthService);
+  public authService = inject(AuthService);
 
   constructor(private router: Router) {}
 
@@ -47,13 +47,11 @@ export class ContatoComponent {
     nome: ['', Validators.required],
     email: ['', [Validators.required, Validators.email]],
     turma: ['', Validators.required],
-    areasInteresse: [[]], // Array vazio inicial
+    areasInteresse: [[]], 
     senha: ['', [Validators.required, Validators.minLength(6)]],
-    // O segredo para o termo obrigatório é o Validators.requiredTrue
     termos: [false, Validators.requiredTrue] 
   });
 
-  // Opções para o multiselect (Exemplo)
   areasOptions = [
     { nome: 'Matemática', code: 'CC' },
     { nome: 'Ciências da Natureza', code: 'BIO' },
@@ -64,11 +62,8 @@ export class ContatoComponent {
   
   cadastrar() {
     if (this.registerForm.valid) {
-      
       const novoUsuario = this.registerForm.value;
-
       const bancoDeDados = JSON.parse(localStorage.getItem('bancoUsuarios') || '[]');
-
       const usuarioExiste = bancoDeDados.find((u: any) => u.email === novoUsuario.email);
 
       if (usuarioExiste) {
@@ -77,12 +72,13 @@ export class ContatoComponent {
       }
 
       bancoDeDados.push(novoUsuario);
-
       localStorage.setItem('bancoUsuarios', JSON.stringify(bancoDeDados));
 
-      alert('Cadastro realizado com sucesso!');
+    localStorage.setItem('user', JSON.stringify(novoUsuario));
 
-      this.router.navigate(['/home']);
+
+    this.authService.currentUser.set(novoUsuario);
+    this.router.navigate(['/home']);
 
     } else {
       alert('Por favor, preencha todos os campos corretamente.');

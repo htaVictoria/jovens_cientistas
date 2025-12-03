@@ -6,23 +6,18 @@ import { isPlatformBrowser } from '@angular/common';
   providedIn: 'root'
 })
 export class AuthService {
-  // 1. INJEÇÃO DE DEPENDÊNCIAS (Modo Moderno)
   private router = inject(Router);
   private platformId = inject(PLATFORM_ID);
 
-  // 2. SINAIS
   currentUser = signal<any | null>(null);
   
-  // Sinal para controlar o carregamento da página (Spinner)
   isInitialized = signal(false); 
 
   constructor() {
-    // Executa a verificação assim que o serviço é criado
     this.checkLocalStorage();
   }
 
   private checkLocalStorage() {
-    // Só tenta ler o localStorage se estiver no Navegador
     if (isPlatformBrowser(this.platformId)) {
       const storedUser = localStorage.getItem('user');
 
@@ -30,27 +25,22 @@ export class AuthService {
         try {
           const parsedUser = JSON.parse(storedUser);
 
-          // Validação extra: verifica se o objeto tem conteúdo
           if (parsedUser && Object.keys(parsedUser).length > 0) {
             this.currentUser.set(parsedUser);
           } else {
             this.currentUser.set(null);
           }
         } catch (e) {
-          // Se o JSON estiver quebrado, limpa o usuário
           this.currentUser.set(null);
         }
       }
     }
 
-    // --- O SEGREDO ESTÁ AQUI ---
-    // Avisa para o HTML (home.component) que a verificação acabou.
-    // Isso faz o Spinner sumir e a página real aparecer.
+
     this.isInitialized.set(true);
   }
 
   login(emailRecebido: string, senhaRecebida: string) {
-    // Pega o "banco de dados" simulado
     const usuariosSalvos = JSON.parse(localStorage.getItem('bancoUsuarios') || '[]');
 
     const usuarioEncontrado = usuariosSalvos.find((user: any) => {
@@ -83,14 +73,22 @@ export class AuthService {
   }
 
   register(userData: any) {
-    this.currentUser.set(userData);
+if (isPlatformBrowser(this.platformId)) {
+      const usuariosSalvos = JSON.parse(localStorage.getItem('bancoUsuarios') || '[]');
+      
+      usuariosSalvos.push(userData);
+      
+      localStorage.setItem('bancoUsuarios', JSON.stringify(usuariosSalvos));
 
-    if (isPlatformBrowser(this.platformId)) {
+      this.currentUser.set(userData);
       localStorage.setItem('user', JSON.stringify(userData));
+    } else {
+      this.currentUser.set(userData);
     }
 
-    this.router.navigate(['/']);
+    this.router.navigate(['/home']);
   }
+  
 
   updateProfile(novosDados: any) {
     const usuarioAtual = this.currentUser();

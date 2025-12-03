@@ -18,6 +18,6 @@ html, body {
   margin: 0;
   padding: 0;
 
-  overflow-x: hidden; /* Previne scroll horizontal globalmente */
+  overflow-x: hidden;
   width: 100%;
 }

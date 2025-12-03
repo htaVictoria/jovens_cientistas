@@ -1,4 +1,3 @@
-// src/app/guards/auth.guard.ts
 import { Injectable } from '@angular/core';
 import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { AuthService } from '../services/auth.service';
@@ -21,7 +20,6 @@ export class AuthGuard implements CanActivate {
       return true;
     }
 
-    // Redirecionar para login se não estiver autenticado
     this.router.navigate(['/login'], { 
       queryParams: { returnUrl: state.url } 
     });
@@ -29,7 +27,6 @@ export class AuthGuard implements CanActivate {
   }
 }
 
-// src/app/guards/no-auth.guard.ts
 @Injectable({
   providedIn: 'root'
 })
@@ -45,7 +42,6 @@ export class NoAuthGuard implements CanActivate {
       return true;
     }
 
-    // Redirecionar para home se já estiver autenticado
     this.router.navigate(['/home']);
     return false;
   }

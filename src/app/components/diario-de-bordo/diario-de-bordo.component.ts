@@ -1,5 +1,5 @@
 import { Component, OnInit, signal, Inject, PLATFORM_ID } from '@angular/core';
-import { CommonModule, isPlatformBrowser } from '@angular/common'; // Importe isPlatformBrowser
+import { CommonModule, isPlatformBrowser } from '@angular/common'; 
 import { FormsModule } from '@angular/forms';
 
 import { ButtonModule } from 'primeng/button';

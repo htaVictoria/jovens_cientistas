@@ -40,6 +40,11 @@ export class AuthService {
     this.isInitialized.set(true);
   }
 
+  isLogado(): boolean {
+    const token = localStorage.getItem('token'); 
+    return !!token; 
+  }
+
   login(emailRecebido: string, senhaRecebida: string) {
     const usuariosSalvos = JSON.parse(localStorage.getItem('bancoUsuarios') || '[]');
 
